@@ -39,7 +39,9 @@
                 <a href="#getting-started">Getting Started</a> |
                 <a href="#models">Choosing Models</a> |
                 <a href="#best-practices">Best Practices</a> |
-                <a href="#context">Context Management</a>
+                <a href="#context">Context Management</a> |
+                <a href="#ai-limitations">AI Limitations</a> |
+                <a href="#backups">Saving Your Work</a>
             </div>
 
             <!-- INSTALLATION SECTION -->
@@ -203,6 +205,125 @@ Provide options labeled a, b, c for me to choose from.</code></pre>
                 <li><strong>Cache data:</strong> Avoid re-uploading data every time</li>
                 <li><strong>Screenshot errors:</strong> Paste them directly into chat</li>
             </ul>
+
+            <!-- AI LIMITATIONS SECTION -->
+            <h2 id="ai-limitations">Understanding AI Limitations</h2>
+            
+            <p>Think of AI like an enthusiastic new coworker who's read <em>a lot</em> of books but has never actually worked a day in your department. They're eager to help and often brilliant—but sometimes they confidently say things that are just... wrong.</p>
+
+            <h3>What AI Is Bad At</h3>
+            <table>
+                <thead>
+                    <tr><th>AI Weakness</th><th>Example</th><th>Why It Happens</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Complex math</strong></td><td>"What's 17.3% of $847,293?"</td><td>AI predicts text, not calculations</td></tr>
+                    <tr><td><strong>Counting</strong></td><td>"How many letters in 'Mississippi'?"</td><td>It guesses, doesn't actually count</td></tr>
+                    <tr><td><strong>Recent events</strong></td><td>Asking about last week's news</td><td>Training data has a cutoff date</td></tr>
+                    <tr><td><strong>Your company data</strong></td><td>"What were Q3 sales for Store #4521?"</td><td>No access to internal systems</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout callout-warning">
+                <span class="callout-title">Pro Tip</span>
+                For any math in your dashboards, always use Excel formulas or calculator tools—never trust AI's arithmetic!
+            </div>
+
+            <h3>Hallucinations: When AI Makes Stuff Up</h3>
+            <p>AI sometimes invents facts with complete confidence. This is called a "hallucination." Watch for:</p>
+            <ul>
+                <li>⚠️ Very specific numbers without sources</li>
+                <li>⚠️ References to features that don't exist</li>
+                <li>⚠️ Confident answers that should be uncertain</li>
+                <li>⚠️ Information that contradicts what you know</li>
+            </ul>
+
+            <h3>Trust But Verify</h3>
+            <p><strong>AI is your first draft, not your final answer.</strong></p>
+            <table>
+                <thead>
+                    <tr><th>Always Verify</th><th>How to Check</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Formulas and calculations</td><td>Test with sample data you can calculate by hand</td></tr>
+                    <tr><td>Code suggestions</td><td>Run it and see if it actually works</td></tr>
+                    <tr><td>Data definitions</td><td>Cross-reference with official documentation</td></tr>
+                    <tr><td>Process steps</td><td>Ask a colleague who's done it before</td></tr>
+                </tbody>
+            </table>
+
+            <h3>When to Stop Asking AI</h3>
+            <p>Switch to human help when:</p>
+            <ul>
+                <li>🚨 You've asked the same thing 3+ ways with confusing results</li>
+                <li>🚨 The answer involves company-specific policies</li>
+                <li>🚨 You need approval or sign-off</li>
+                <li>🚨 The stakes are high (financial reports, compliance)</li>
+            </ul>
+
+            <!-- BACKUPS SECTION -->
+            <h2 id="backups">Saving Your Work (Version Control Basics)</h2>
+
+            <p>Here's a truth every developer learns the hard way: <strong>things break</strong>. When AI "improves" something and suddenly nothing works, you'll be grateful for backups.</p>
+
+            <div class="callout callout-tip">
+                <span class="callout-title">Golden Rule</span>
+                Before asking AI to make any significant change, <strong>save a copy of what's currently working</strong>.
+            </div>
+
+            <h3>Simple Backup Strategy: Dated Folders</h3>
+            <p>The easiest approach that works great:</p>
+            <ol class="steps">
+                <li>Find your project folder (e.g., <code>my-dashboard</code>)</li>
+                <li>Copy the entire folder</li>
+                <li>Rename the copy with today's date: <code>my-dashboard-2026-01-22-working</code></li>
+            </ol>
+
+            <table>
+                <thead>
+                    <tr><th>When to Save</th><th>Folder Name Example</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Before a big AI change</td><td><code>my-dashboard-2026-01-22-before-chart-update</code></td></tr>
+                    <tr><td>After something works</td><td><code>my-dashboard-2026-01-22-login-working</code></td></tr>
+                    <tr><td>End of work session</td><td><code>my-dashboard-2026-01-22-end-of-day</code></td></tr>
+                </tbody>
+            </table>
+
+            <h3>The "Save a Working Version" Mindset</h3>
+            <p>Train yourself to think: <strong>"It works! Time to save."</strong></p>
+            <ul>
+                <li>✅ Login page displays correctly? Save it.</li>
+                <li>✅ Chart shows real data? Save it.</li>
+                <li>✅ Export button works? Save it.</li>
+            </ul>
+
+            <h3>When Everything Breaks: Recovery Plan</h3>
+            <ol class="steps">
+                <li><strong>Stop making changes</strong> — Don't let AI try to "fix" it (often makes it worse)</li>
+                <li><strong>Find your last backup</strong> — Look for your most recent dated folder</li>
+                <li><strong>Replace the broken files</strong> — Copy working files from backup</li>
+                <li><strong>Test it works</strong> — Run your dashboard to confirm</li>
+                <li><strong>Try again with smaller changes</strong> — Ask AI for one small change at a time</li>
+            </ol>
+
+            <h3>Undo Strategies</h3>
+            <table>
+                <thead>
+                    <tr><th>Situation</th><th>What To Do</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>AI just made a bad change</td><td>Press <kbd>Ctrl</kbd>+<kbd>Z</kbd> immediately in your editor</td></tr>
+                    <tr><td>You saved the bad change</td><td>Restore from your dated backup folder</td></tr>
+                    <tr><td>Multiple files are broken</td><td>Replace entire project folder with backup</td></tr>
+                    <tr><td>Not sure what changed</td><td>Compare files side-by-side with your backup</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout callout-info">
+                <span class="callout-title">Optional: Git</span>
+                Git is the professional tool developers use for version control—unlimited undo with complete history. For now, <strong>dated folders work perfectly fine</strong>. Git is there when you're ready to level up.
+            </div>
 
             <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e0e0e0;">
             <a href="troubleshooting.html" class="btn btn-primary">Troubleshooting</a>
