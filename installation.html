@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation | AI Training Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">AI Training Guide</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="installation.html" class="nav-link active">Installation</a></li>
+                <li class="nav-item"><a href="getting-started.html" class="nav-link">Getting Started</a></li>
+                <li class="nav-item"><a href="best-practices.html" class="nav-link">Best Practices</a></li>
+                <li class="nav-item"><a href="troubleshooting.html" class="nav-link">Troubleshooting</a></li>
+                <li class="nav-item"><a href="resources.html" class="nav-link">Resources</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <h1>Installing Code Puppy</h1>
+            <p>Getting Code Puppy set up takes less than 5 minutes. Follow these steps to get started.</p>
+
+            <h2>Prerequisites</h2>
+            <ul>
+                <li>A Walmart laptop (Windows or Mac)</li>
+                <li>Access to the internet (on VPN or in-office)</li>
+                <li>Windows PowerShell (Windows) or Terminal (Mac)</li>
+            </ul>
+
+            <h2>Installation Steps</h2>
+            <ol class="steps">
+                <li>
+                    <strong>Go to the Code Puppy website</strong><br>
+                    Open your browser and navigate to <a href="https://puppy.walmart.com" target="_blank">puppy.walmart.com</a>
+                </li>
+                <li>
+                    <strong>Sign in with Walmart Auth</strong><br>
+                    Click the "Sign in with Walmart Auth" button and authenticate with your Walmart credentials.
+                </li>
+                <li>
+                    <strong>Open your terminal</strong><br>
+                    <strong>Windows:</strong> Search for "PowerShell" in the Start menu and open it.<br>
+                    <strong>Mac:</strong> Open the Terminal app (search in Spotlight or find it in Applications &gt; Utilities).
+                </li>
+                <li>
+                    <strong>Copy the installation command</strong><br>
+                    On the Code Puppy website, find the installation command for your operating system (Windows or Mac) and copy it.
+                </li>
+                <li>
+                    <strong>Paste and run the command</strong><br>
+                    Paste the command into PowerShell/Terminal and press Enter. The installation will begin automatically.
+                </li>
+            </ol>
+
+            <div class="callout callout-info">
+                <span class="callout-title">Installation Time</span>
+                The installation typically takes 1-3 minutes depending on your internet connection. You'll see progress messages as it installs.
+            </div>
+
+            <h2>Running Code Puppy</h2>
+            <p>Once installed, starting Code Puppy is simple:</p>
+            <ol class="steps">
+                <li>
+                    <strong>Open PowerShell (Windows) or Terminal (Mac)</strong>
+                </li>
+                <li>
+                    <strong>Type <code>code-puppy</code> and press Enter</strong>
+                </li>
+                <li>
+                    <strong>Start chatting!</strong><br>
+                    Just type what you want help with in plain English.
+                </li>
+            </ol>
+
+            <pre><code>PS C:\Users\YourName&gt; code-puppy</code></pre>
+
+            <div class="callout callout-tip">
+                <span class="callout-title">Pro Tip</span>
+                You can run Code Puppy from any directory. If you want to work on files in a specific folder, navigate there first using <code>cd path\to\folder</code>, then run <code>code-puppy</code>.
+            </div>
+
+            <h2>Updating Code Puppy</h2>
+            <p>Code Puppy updates automatically when you start it. If updates aren't applying:</p>
+            <ol>
+                <li>Close Code Puppy completely</li>
+                <li>Restart it by typing <code>code-puppy</code> again</li>
+                <li>If issues persist, reinstall from <a href="https://puppy.walmart.com">puppy.walmart.com</a></li>
+            </ol>
+
+            <h2>Troubleshooting Installation</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Problem</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Command not recognized</td>
+                        <td>Close and reopen PowerShell/Terminal, then try again</td>
+                    </tr>
+                    <tr>
+                        <td>Connection errors</td>
+                        <td>Make sure you're on VPN or Walmart network</td>
+                    </tr>
+                    <tr>
+                        <td>Permission denied</td>
+                        <td>Run PowerShell as Administrator (right-click &gt; Run as Administrator)</td>
+                    </tr>
+                    <tr>
+                        <td>Installation hangs</td>
+                        <td>Check your internet connection; try again in a few minutes</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="callout callout-warning">
+                <span class="callout-title">Need Help?</span>
+                If you're still having trouble, reach out in the Code Puppy Teams channel or contact the Code Puppy team directly.
+            </div>
+
+            <hr style="margin: 3rem 0; border: none; border-top: 1px solid #e0e0e0;">
+            <a href="getting-started.html" class="btn btn-primary">Next: Getting Started</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>AI Training Guide - Walmart Finance</p>
+            <p>Last updated: January 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

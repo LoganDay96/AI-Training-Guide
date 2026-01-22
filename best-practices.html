@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Practices | AI Training Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">AI Training Guide</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="installation.html" class="nav-link">Installation</a></li>
+                <li class="nav-item"><a href="getting-started.html" class="nav-link">Getting Started</a></li>
+                <li class="nav-item"><a href="best-practices.html" class="nav-link active">Best Practices</a></li>
+                <li class="nav-item"><a href="troubleshooting.html" class="nav-link">Troubleshooting</a></li>
+                <li class="nav-item"><a href="resources.html" class="nav-link">Resources</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <h1>Best Practices</h1>
+            <p>These tips will help you get the most out of Code Puppy and avoid common pitfalls.</p>
+
+            <h2>The Waterfall Approach</h2>
+            <p>For complex projects, follow this structured approach:</p>
+            <ol class="steps">
+                <li>
+                    <strong>Clean your data first</strong><br>
+                    If your data is in Excel or a similar format, add helper columns and clean up any messy formatting before feeding it to Code Puppy.
+                </li>
+                <li>
+                    <strong>Let the AI understand your data</strong><br>
+                    Have Code Puppy (or ChatGPT) look at the data source and ask you questions until it fully understands what it's looking at.
+                </li>
+                <li>
+                    <strong>Create a framework together</strong><br>
+                    Work with the AI to build a plan before any code is written. Have it interview you until you both agree on the approach.
+                </li>
+                <li>
+                    <strong>Feed the framework to Code Puppy</strong><br>
+                    Once you have a clear plan, give it to Code Puppy and let it execute.
+                </li>
+                <li>
+                    <strong>Let it work</strong><br>
+                    Trust the process! Review the output and iterate as needed.
+                </li>
+            </ol>
+
+            <h2>Prompting Tips</h2>
+            <h3>Be Specific</h3>
+            <p>Vague prompts lead to vague results.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Instead of...</th>
+                        <th>Try...</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>"Make me a chart"</td>
+                        <td>"Create a bar chart showing monthly sales by region, with blue bars and a white background"</td>
+                    </tr>
+                    <tr>
+                        <td>"Analyze this file"</td>
+                        <td>"Analyze this Excel file and find the top 10 customers by total revenue"</td>
+                    </tr>
+                    <tr>
+                        <td>"Fix this"</td>
+                        <td>"This code throws an error on line 15. Here's the error message: [paste error]"</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Give Examples</h3>
+            <p>If you have a specific look or behavior in mind, show it:</p>
+            <pre><code>I want the dashboard to look similar to this screenshot: [paste image]
+Or like this website: [provide URL]</code></pre>
+
+            <h3>Screenshot Errors</h3>
+            <p>When something goes wrong:</p>
+            <ol>
+                <li>Take a screenshot of the error</li>
+                <li>Paste it directly into the chat</li>
+                <li>Code Puppy can read images and will understand the error</li>
+            </ol>
+
+            <h2>Context Management</h2>
+            <p>This is one of the most important concepts for working effectively with AI.</p>
+
+            <div class="callout callout-warning">
+                <span class="callout-title">Context Window Limits</span>
+                Current models have a limit of 200k - 272k tokens per conversation. When the context window fills up (50-70% full), you'll notice:
+                <ul>
+                    <li>Generic, less helpful replies</li>
+                    <li>The agent forgets earlier instructions</li>
+                    <li>Repeated or contradictory responses</li>
+                </ul>
+            </div>
+
+            <h3>When to Start a New Chat</h3>
+            <p>If the agent starts giving you generic answers or forgets what you were working on, it's time for a fresh conversation.</p>
+
+            <h3>Preserving Context Across Chats</h3>
+            <p>Before ending a long session:</p>
+            <pre><code>Please create a context.md file that summarizes:
+- What we're building
+- The current state of the project
+- Any specific style or constraints we agreed on
+- What we should work on next</code></pre>
+            <p>When you start a new chat:</p>
+            <pre><code>Please read the context.md file in this project folder
+to understand where we left off.</code></pre>
+
+            <h2>Model Switching</h2>
+            <p>Different models have different strengths. If you're stuck:</p>
+            <ol>
+                <li><strong>Try a different model</strong> - Claude and ChatGPT approach problems differently</li>
+                <li><strong>Give it 3 attempts</strong> - If one model can't fix a bug in 3 tries, switch</li>
+                <li><strong>Start fresh</strong> - Sometimes a new conversation helps more than switching models</li>
+            </ol>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Strengths</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Claude Sonnet</td>
+                        <td>Excellent at coding, writes detailed documentation</td>
+                    </tr>
+                    <tr>
+                        <td>ChatGPT Codex</td>
+                        <td>Great at understanding directions, solid coding</td>
+                    </tr>
+                    <tr>
+                        <td>Gemini</td>
+                        <td>Better at visual/front-end work and image understanding</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Working with Visuals</h2>
+            <h3>ASCII Mockups</h3>
+            <p>AI agents aren't always great at designing things from scratch. If you have a specific layout in mind:</p>
+            <ol>
+                <li>Describe your design to ChatGPT</li>
+                <li>Ask it to create an ASCII mockup</li>
+                <li>Feed that mockup to Code Puppy as a reference</li>
+            </ol>
+            <pre><code>I want a dashboard with a header, sidebar on the left,
+and a main content area. Please create an ASCII mockup
+of this layout that I can give to my coding agent.</code></pre>
+
+            <h3>Copying Existing Designs</h3>
+            <p>If you like how something looks:</p>
+            <ol>
+                <li>Screenshot it</li>
+                <li>Have ChatGPT create an ASCII mockup from the screenshot</li>
+                <li>Give that to Code Puppy to recreate</li>
+            </ol>
+
+            <h2>Quick Wins</h2>
+            <h3>Create a Launcher</h3>
+            <p>For tools you build, ask Code Puppy to create a launcher file:</p>
+            <pre><code>Create a batch file I can double-click to automatically
+open this tool in my browser.</code></pre>
+
+            <h3>Cache Your Data</h3>
+            <p>For data processing tools:</p>
+            <pre><code>Add caching so I don't have to upload the data every time.
+Make sure new uploads replace the cached data.</code></pre>
+
+            <h3>Label Your Data</h3>
+            <p>Clean, well-labeled data saves enormous amounts of time. Before starting any analysis:</p>
+            <ul>
+                <li>Add clear column headers</li>
+                <li>Remove unnecessary columns</li>
+                <li>Fix any formatting issues</li>
+            </ul>
+
+            <div class="callout callout-tip">
+                <span class="callout-title">Save Progress Frequently</span>
+                When using VS Code or similar tools with GitHub, commit your changes often. Create a new branch before trying anything experimental or "squirrely."
+            </div>
+
+            <hr style="margin: 3rem 0; border: none; border-top: 1px solid #e0e0e0;">
+            <a href="troubleshooting.html" class="btn btn-primary">Next: Troubleshooting</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>AI Training Guide - Walmart Finance</p>
+            <p>Last updated: January 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

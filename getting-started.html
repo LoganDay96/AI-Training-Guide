@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started | AI Training Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">AI Training Guide</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="installation.html" class="nav-link">Installation</a></li>
+                <li class="nav-item"><a href="getting-started.html" class="nav-link active">Getting Started</a></li>
+                <li class="nav-item"><a href="best-practices.html" class="nav-link">Best Practices</a></li>
+                <li class="nav-item"><a href="troubleshooting.html" class="nav-link">Troubleshooting</a></li>
+                <li class="nav-item"><a href="resources.html" class="nav-link">Resources</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <h1>Getting Started with Code Puppy</h1>
+            <p>Now that you have Code Puppy installed, let's learn how to use it effectively.</p>
+
+            <h2>Choosing the Right Model</h2>
+            <p>Code Puppy supports multiple AI models. Choosing the right one makes a big difference in quality.</p>
+
+            <div class="callout callout-warning">
+                <span class="callout-title">Important: Check Your Model</span>
+                Make sure you're using one of the top-tier models. If you're using Haiku (the lightweight model), you might think Code Puppy is not very smart - but it's just using a less capable model!
+            </div>
+
+            <h3>How to Switch Models</h3>
+            <p>Type <code>/model</code> and press Enter to see your available options.</p>
+            <p><strong>Recommended models (as of January 2026):</strong></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Claude Opus 4.5</strong></td>
+                        <td>Best overall model for most tasks</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ChatGPT 5.2</strong></td>
+                        <td>Very good, more methodical, slightly slower</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gemini 3.0</strong></td>
+                        <td>Great for image processing and front-end design</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Basic Commands</h2>
+            <p>Code Puppy responds to natural language, but there are also some helpful slash commands:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Command</th>
+                        <th>What It Does</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>/model</code></td>
+                        <td>Show and switch between AI models</td>
+                    </tr>
+                    <tr>
+                        <td><code>/help</code></td>
+                        <td>Display available commands</td>
+                    </tr>
+                    <tr>
+                        <td><code>/clear</code></td>
+                        <td>Clear the current conversation</td>
+                    </tr>
+                    <tr>
+                        <td><code>/exit</code></td>
+                        <td>Exit Code Puppy</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Your First Conversation</h2>
+            <p>Just start typing what you want help with. Here are some example prompts to try:</p>
+
+            <h3>Analyzing Data</h3>
+            <pre><code>I have an Excel file at C:\Users\MyName\Documents\sales_data.xlsx
+Please analyze it and tell me the top 5 performing products.</code></pre>
+
+            <h3>Creating Visualizations</h3>
+            <pre><code>Look at this data file and create a bar chart showing monthly trends.
+Save it as a PNG file.</code></pre>
+
+            <h3>Researching at Walmart</h3>
+            <pre><code>Search Confluence for documentation about the finance reporting process.</code></pre>
+
+            <h3>Getting Help with Code</h3>
+            <pre><code>Help me write a Python script that reads a CSV file and removes duplicate rows.</code></pre>
+
+            <h2>Built-in Agents</h2>
+            <p>Code Puppy has special agents for Walmart-specific tasks:</p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>BigQuery Search</h3>
+                    <p>Search and query Walmart's BigQuery data warehouse directly from Code Puppy.</p>
+                </div>
+                <div class="card">
+                    <h3>Confluence Search</h3>
+                    <p>Search Walmart's Confluence documentation to find internal guides and processes.</p>
+                </div>
+                <div class="card">
+                    <h3>Agent Creator</h3>
+                    <p>Create your own custom agents. Just describe what you want the agent to do, and Code Puppy will set it up for you.</p>
+                </div>
+            </div>
+
+            <h2>Working with Files</h2>
+            <p>One of Code Puppy's best features is working with files on your computer.</p>
+
+            <h3>Tip: Use File Paths</h3>
+            <p>Instead of describing where a file is, just paste the full path:</p>
+            <pre><code>Please analyze C:\Users\MyName\Documents\Q4_Report.xlsx</code></pre>
+
+            <div class="callout callout-tip">
+                <span class="callout-title">Quick Path Copy</span>
+                In Windows File Explorer, hold Shift, right-click a file, and select "Copy as path" to get the full file path.
+            </div>
+
+            <h3>Navigating Folders</h3>
+            <p>Before starting Code Puppy, navigate to your project folder:</p>
+            <pre><code>cd C:\Users\MyName\Documents\MyProject
+code-puppy</code></pre>
+            <p>Now Code Puppy will see all files in that folder by default.</p>
+
+            <h2>The Interview Technique</h2>
+            <p>If Code Puppy is confused about what you want, ask it to interview you:</p>
+            <pre><code>I want to build something but I'm not sure exactly what.
+Interview me until you understand what I need.
+Ask me numbered questions with multiple choice options (a, b, c, etc.)</code></pre>
+            <p>This is a great way to clarify complex requests!</p>
+
+            <div class="callout callout-info">
+                <span class="callout-title">The Best Prompt for Complex Tasks</span>
+                <p>Use this prompt to get Code Puppy to really understand what you want:</p>
+                <p><em>"Help me come up with a plan to implement this. DON'T WRITE OR EDIT ANY FILES. Ask me clarifying questions until you are 95% confident you can complete this task successfully. Provide options labeled a, b, c, etc. for me to choose from."</em></p>
+            </div>
+
+            <hr style="margin: 3rem 0; border: none; border-top: 1px solid #e0e0e0;">
+            <a href="best-practices.html" class="btn btn-primary">Next: Best Practices</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>AI Training Guide - Walmart Finance</p>
+            <p>Last updated: January 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

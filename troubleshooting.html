@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troubleshooting | AI Training Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">AI Training Guide</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="installation.html" class="nav-link">Installation</a></li>
+                <li class="nav-item"><a href="getting-started.html" class="nav-link">Getting Started</a></li>
+                <li class="nav-item"><a href="best-practices.html" class="nav-link">Best Practices</a></li>
+                <li class="nav-item"><a href="troubleshooting.html" class="nav-link active">Troubleshooting</a></li>
+                <li class="nav-item"><a href="resources.html" class="nav-link">Resources</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <h1>Troubleshooting</h1>
+            <p>Common issues and how to resolve them.</p>
+
+            <h2>Installation Issues</h2>
+
+            <h3>"code-puppy" is not recognized</h3>
+            <p><strong>Cause:</strong> PowerShell/Terminal hasn't refreshed since installation.</p>
+            <p><strong>Solution:</strong></p>
+            <ol>
+                <li>Close PowerShell/Terminal completely</li>
+                <li>Open a new window</li>
+                <li>Try running <code>code-puppy</code> again</li>
+            </ol>
+            <p>If it still doesn't work, try reinstalling from <a href="https://puppy.walmart.com">puppy.walmart.com</a>.</p>
+
+            <h3>Connection or download errors</h3>
+            <p><strong>Cause:</strong> Network or proxy issues.</p>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Make sure you're connected to VPN or on the Walmart network</li>
+                <li>Try again in a few minutes - sometimes there are temporary outages</li>
+                <li>If the problem persists, try reinstalling</li>
+            </ul>
+
+            <h3>Permission denied errors</h3>
+            <p><strong>Cause:</strong> PowerShell doesn't have the right permissions.</p>
+            <p><strong>Solution (Windows):</strong></p>
+            <ol>
+                <li>Right-click on PowerShell</li>
+                <li>Select "Run as Administrator"</li>
+                <li>Try the installation again</li>
+            </ol>
+
+            <h2>Runtime Issues</h2>
+
+            <h3>Code Puppy starts but behaves strangely</h3>
+            <p><strong>Cause:</strong> You might be using a less capable model.</p>
+            <p><strong>Solution:</strong></p>
+            <ol>
+                <li>Type <code>/model</code> and press Enter</li>
+                <li>Switch to Claude Opus 4.5 or ChatGPT 5.2</li>
+                <li>Try your request again</li>
+            </ol>
+
+            <div class="callout callout-warning">
+                <span class="callout-title">Check Your Model First</span>
+                If Code Puppy seems "dumb" or gives unhelpful responses, the most common cause is using a lightweight model like Haiku instead of a full model like Claude Opus.
+            </div>
+
+            <h3>Responses are getting worse over time</h3>
+            <p><strong>Cause:</strong> The context window is filling up.</p>
+            <p><strong>Solution:</strong></p>
+            <ol>
+                <li>Save your progress by asking Code Puppy to create a <code>context.md</code> file</li>
+                <li>Start a new conversation</li>
+                <li>Point Code Puppy to the <code>context.md</code> file to resume</li>
+            </ol>
+            <p>See the <a href="best-practices.html">Best Practices</a> page for more on context management.</p>
+
+            <h3>Code Puppy can't find my file</h3>
+            <p><strong>Cause:</strong> The file path might be incorrect, or the file is in use.</p>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Make sure you're using the full file path</li>
+                <li>Close any programs that have the file open (especially Excel)</li>
+                <li>Try copying the file to a simpler path like <code>C:\Temp\myfile.xlsx</code></li>
+            </ul>
+
+            <div class="callout callout-tip">
+                <span class="callout-title">Getting the Right Path</span>
+                In Windows File Explorer, hold <kbd>Shift</kbd>, right-click the file, and select "Copy as path" to get the exact path.
+            </div>
+
+            <h3>"The file is being used by another process"</h3>
+            <p><strong>Cause:</strong> Another program (usually Excel or Word) has the file open.</p>
+            <p><strong>Solution:</strong></p>
+            <ol>
+                <li>Close the file in the other program</li>
+                <li>Try again</li>
+            </ol>
+            <p>Or, copy the file to a new location and use that path instead.</p>
+
+            <h2>Model-Specific Issues</h2>
+
+            <h3>One model keeps failing, but another works</h3>
+            <p><strong>This is normal!</strong> Different models have different strengths and weaknesses.</p>
+            <p><strong>Solution:</strong></p>
+            <ol>
+                <li>If one model can't solve a problem in 3 attempts, switch to another</li>
+                <li>Try: Claude Opus, ChatGPT Codex, or Gemini</li>
+                <li>If none work, start a completely new conversation</li>
+            </ol>
+
+            <h3>Model is very slow</h3>
+            <p><strong>Cause:</strong> The model might be under heavy load, or your request is complex.</p>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Wait for the response - complex tasks take longer</li>
+                <li>Try a different model if speed is critical</li>
+                <li>Break your request into smaller pieces</li>
+            </ul>
+
+            <h2>Agent Issues</h2>
+
+            <h3>BigQuery or Confluence agents aren't working</h3>
+            <p><strong>Cause:</strong> Authentication or access issues.</p>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Make sure you have the proper permissions for BigQuery/Confluence</li>
+                <li>Try restarting Code Puppy</li>
+                <li>Check if you need to re-authenticate</li>
+            </ul>
+
+            <h3>Custom agent not behaving as expected</h3>
+            <p><strong>Cause:</strong> The agent configuration might need adjustment.</p>
+            <p><strong>Solution:</strong></p>
+            <ol>
+                <li>Ask Code Puppy to show you the agent's current configuration</li>
+                <li>Describe what behavior you want changed</li>
+                <li>Have Code Puppy update the agent configuration</li>
+            </ol>
+
+            <h2>Still Having Issues?</h2>
+            <div class="callout callout-info">
+                <span class="callout-title">Getting Help</span>
+                <ul>
+                    <li>Check the Code Puppy Teams channel for known issues</li>
+                    <li>Ask your question there - the community is helpful!</li>
+                    <li>For critical issues, contact the Code Puppy team directly</li>
+                    <li>You can always reinstall from <a href="https://puppy.walmart.com">puppy.walmart.com</a></li>
+                </ul>
+            </div>
+
+            <hr style="margin: 3rem 0; border: none; border-top: 1px solid #e0e0e0;">
+            <a href="resources.html" class="btn btn-primary">Next: Resources</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>AI Training Guide - Walmart Finance</p>
+            <p>Last updated: January 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
