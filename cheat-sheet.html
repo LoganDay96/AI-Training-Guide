@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet | AI Training Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Print-friendly styles */
+        @media print {
+            .navbar, .footer, .no-print, .btn { display: none !important; }
+            .main-content { padding: 0 !important; }
+            .container { max-width: 100% !important; padding: 0 !important; }
+            .cheat-grid { gap: 0.5rem !important; }
+            .cheat-card { break-inside: avoid; page-break-inside: avoid; padding: 0.5rem !important; margin: 0.25rem 0 !important; }
+            h1 { font-size: 1.5rem !important; margin-bottom: 0.5rem !important; }
+            h2 { font-size: 1rem !important; margin: 0.5rem 0 0.25rem !important; }
+            body { font-size: 11px !important; }
+            table { font-size: 10px !important; }
+            th, td { padding: 0.25rem 0.5rem !important; }
+            .print-header { display: block !important; }
+        }
+        
+        .print-header {
+            display: none;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #0071CE;
+        }
+        .print-header h1 { margin: 0; font-size: 1.25rem; }
+        .print-header p { margin: 0.25rem 0 0; font-size: 0.85rem; color: #666; }
+        
+        .cheat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        @media (max-width: 768px) {
+            .cheat-grid { grid-template-columns: 1fr; }
+        }
+        .cheat-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1rem;
+        }
+        .cheat-card h2 {
+            font-size: 1rem;
+            color: #0071CE;
+            margin: 0 0 0.75rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #0071CE;
+        }
+        .cheat-card table {
+            width: 100%;
+            margin: 0;
+        }
+        .cheat-card th, .cheat-card td {
+            padding: 0.35rem 0.5rem;
+            font-size: 0.85rem;
+        }
+        .cheat-card ul {
+            margin: 0;
+            padding-left: 1.25rem;
+        }
+        .cheat-card li {
+            font-size: 0.85rem;
+            margin-bottom: 0.35rem;
+        }
+        .cheat-card code {
+            background: #f5f5f5;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        .print-btn {
+            background: #0071CE;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.25rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        .print-btn:hover {
+            background: #005a9e;
+        }
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">AI Training Guide</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="quick-start.html" class="nav-link">Quick Start</a></li>
+                <li class="nav-item"><a href="learn.html" class="nav-link">Learn</a></li>
+                <li class="nav-item"><a href="troubleshooting.html" class="nav-link">Troubleshooting</a></li>
+                <li class="nav-item"><a href="resources.html" class="nav-link">Resources</a></li>
+                <li class="nav-item"><a href="glossary.html" class="nav-link">Glossary</a></li>
+                <li class="nav-item"><a href="prompts.html" class="nav-link">Prompts</a></li>
+                <li class="nav-item"><a href="cheat-sheet.html" class="nav-link active">Cheat Sheet</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="print-header">
+                <h1>🐶 Code Puppy Cheat Sheet</h1>
+                <p>puppy.walmart.com | AI Training Guide</p>
+            </div>
+
+            <div class="header-row no-print">
+                <div>
+                    <h1>🐶 Code Puppy Cheat Sheet</h1>
+                    <p>Print this and keep it at your desk!</p>
+                </div>
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Page</button>
+            </div>
+
+            <div class="cheat-grid">
+                <!-- Getting Started -->
+                <div class="cheat-card">
+                    <h2>🚀 Getting Started</h2>
+                    <table>
+                        <tr><td><strong>Install</strong></td><td><a href="https://puppy.walmart.com">puppy.walmart.com</a></td></tr>
+                        <tr><td><strong>Launch</strong></td><td>Open PowerShell, type <code>code-puppy</code></td></tr>
+                        <tr><td><strong>First step</strong></td><td>Type <code>/model</code> and pick a good model!</td></tr>
+                    </table>
+                </div>
+
+                <!-- Recommended Models -->
+                <div class="cheat-card">
+                    <h2>🧠 Recommended Models</h2>
+                    <table>
+                        <tr><td><strong>Claude Opus 4.5</strong></td><td>Best overall ⭐</td></tr>
+                        <tr><td><strong>ChatGPT 5.2</strong></td><td>Very good, methodical</td></tr>
+                        <tr><td><strong>Gemini 3.0</strong></td><td>Great for images/design</td></tr>
+                    </table>
+                    <p style="font-size: 0.8rem; margin: 0.5rem 0 0; color: #666;">⚠️ Avoid Haiku - it's the "lite" model!</p>
+                </div>
+
+                <!-- Essential Commands -->
+                <div class="cheat-card">
+                    <h2>⌨️ Essential Commands</h2>
+                    <table>
+                        <tr><td><code>/model</code></td><td>Switch AI models</td></tr>
+                        <tr><td><code>/agent</code></td><td>Switch agents (BigQuery, Confluence)</td></tr>
+                        <tr><td><code>/resume</code></td><td>Resume previous conversation</td></tr>
+                        <tr><td><code>/clear</code></td><td>Clear conversation</td></tr>
+                        <tr><td><code>/help</code></td><td>Show all commands</td></tr>
+                        <tr><td><code>/exit</code></td><td>Exit Code Puppy</td></tr>
+                    </table>
+                </div>
+
+                <!-- Terminal Shortcuts -->
+                <div class="cheat-card">
+                    <h2>⚡ Terminal Shortcuts</h2>
+                    <table>
+                        <tr><td><kbd>Ctrl</kbd> + <kbd>C</kbd></td><td>Stop/cancel current request</td></tr>
+                        <tr><td><kbd>↑</kbd> / <kbd>↓</kbd></td><td>Scroll through past prompts</td></tr>
+                        <tr><td><kbd>/</kbd></td><td>Show all slash commands</td></tr>
+                    </table>
+                </div>
+
+                <!-- Quick Tips -->
+                <div class="cheat-card">
+                    <h2>💡 Quick Tips</h2>
+                    <ul>
+                        <li><strong>Be specific:</strong> "Find top 10 customers by revenue" not "analyze this"</li>
+                        <li><strong>Rule of 3:</strong> If it fails 3 times, switch models</li>
+                        <li><strong>Copy file paths:</strong> Shift + right-click → "Copy as path"</li>
+                        <li><strong>Start fresh:</strong> When context is full, save a context.md and start new chat</li>
+                        <li><strong>Save often:</strong> Backup working folders with dated names</li>
+                    </ul>
+                </div>
+
+                <!-- The Interview Technique -->
+                <div class="cheat-card">
+                    <h2>🎯 The Interview Prompt</h2>
+                    <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">Use this for complex tasks:</p>
+                    <div style="background: #f5f5f5; padding: 0.5rem; border-radius: 4px; font-size: 0.8rem; font-family: monospace;">
+                        Help me come up with a plan.<br>
+                        DON'T WRITE ANY FILES.<br>
+                        Ask me clarifying questions until you are 95% confident.<br>
+                        Provide options labeled a, b, c for me to choose from.
+                    </div>
+                </div>
+
+                <!-- Common Mistakes -->
+                <div class="cheat-card">
+                    <h2>🚫 Common Mistakes</h2>
+                    <ul>
+                        <li><strong>Wrong model</strong> → Type <code>/model</code> and switch!</li>
+                        <li><strong>Vague prompts</strong> → Be specific about what you want</li>
+                        <li><strong>Fighting too long</strong> → 3 fails = switch models or start fresh</li>
+                        <li><strong>No backups</strong> → Save dated folders before big changes</li>
+                        <li><strong>Trusting math</strong> → Always verify calculations!</li>
+                    </ul>
+                </div>
+
+                <!-- Built-in Agents -->
+                <div class="cheat-card">
+                    <h2>🤖 Built-in Agents</h2>
+                    <table>
+                        <tr><td><strong>BigQuery Search</strong></td><td>Query Walmart data warehouse</td></tr>
+                        <tr><td><strong>Confluence Search</strong></td><td>Find internal docs</td></tr>
+                        <tr><td><strong>Agent Creator</strong></td><td>Build custom agents</td></tr>
+                    </table>
+                    <p style="font-size: 0.8rem; margin: 0.5rem 0 0; color: #666;">Type <code>/agent</code> to switch between them</p>
+                </div>
+
+                <!-- Links -->
+                <div class="cheat-card full-width">
+                    <h2>🔗 Quick Links</h2>
+                    <table>
+                        <tr>
+                            <td><strong>Install Code Puppy</strong></td>
+                            <td><a href="https://puppy.walmart.com">puppy.walmart.com</a></td>
+                            <td><strong>This Guide</strong></td>
+                            <td><a href="https://loganday96.github.io/AI-Training-Guide/">loganday96.github.io/AI-Training-Guide</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="no-print" style="margin-top: 2rem; text-align: center;">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Page</button>
+                <p style="margin-top: 0.75rem; color: #666; font-size: 0.85rem;">Prints nicely on one page!</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>AI Training Guide - Walmart Finance | Last updated: January 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
