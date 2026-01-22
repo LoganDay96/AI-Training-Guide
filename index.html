@@ -19,13 +19,9 @@
             <ul class="nav-menu">
                 <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
                 <li class="nav-item"><a href="quick-start.html" class="nav-link">Quick Start</a></li>
-                <li class="nav-item"><a href="installation.html" class="nav-link">Installation</a></li>
-                <li class="nav-item"><a href="getting-started.html" class="nav-link">Getting Started</a></li>
-                <li class="nav-item"><a href="best-practices.html" class="nav-link">Best Practices</a></li>
-                <li class="nav-item"><a href="common-mistakes.html" class="nav-link">Common Mistakes</a></li>
+                <li class="nav-item"><a href="learn.html" class="nav-link">Learn</a></li>
                 <li class="nav-item"><a href="troubleshooting.html" class="nav-link">Troubleshooting</a></li>
                 <li class="nav-item"><a href="resources.html" class="nav-link">Resources</a></li>
-                <li class="nav-item"><a href="whats-new.html" class="nav-link">What's New</a></li>
             </ul>
         </div>
     </nav>
@@ -34,7 +30,7 @@
         <div class="container">
             <div class="hero">
                 <h1>AI Training Guide</h1>
-                <p>Your guide to getting started with Code Puppy and AI-assisted development at Walmart</p>
+                <p>Your guide to Code Puppy and AI-assisted development at Walmart</p>
                 <a href="quick-start.html" class="btn btn-secondary">Get Started</a>
             </div>
 
@@ -42,94 +38,68 @@
             <div class="callout callout-info">
                 <span class="callout-title">New here? Follow this path:</span>
                 <ol style="margin-bottom: 0;">
-                    <li><strong><a href="quick-start.html">Quick Start</a></strong> - Get up and running in 5 minutes</li>
-                    <li><strong><a href="common-mistakes.html">Common Mistakes</a></strong> - Learn what NOT to do</li>
-                    <li><strong><a href="best-practices.html">Best Practices</a></strong> - Level up your prompting</li>
-                    <li><strong><a href="resources.html">Resources</a></strong> - Bookmark for reference</li>
+                    <li><strong><a href="quick-start.html">Quick Start</a></strong> - Get running in 5 minutes</li>
+                    <li><strong><a href="learn.html">Learn</a></strong> - Installation, models, best practices</li>
+                    <li><strong><a href="troubleshooting.html">Troubleshooting</a></strong> - When things go wrong</li>
+                    <li><strong><a href="resources.html">Resources</a></strong> - Links and reference</li>
                 </ol>
             </div>
-            <p style="color: #666; font-size: 0.9rem;">Already installed? Jump to <a href="getting-started.html">Getting Started</a> or <a href="troubleshooting.html">Troubleshooting</a>.</p>
 
             <h2>What is Code Puppy?</h2>
-            <p>Code Puppy is Walmart's in-house AI coding assistant, created by Michael Pfaffenberger (Walmart Software Engineer) in May 2025. It's a powerful AI model that can:</p>
+            <p>Code Puppy is Walmart's in-house AI coding assistant, created by Michael Pfaffenberger in May 2025. It can:</p>
             <ul>
-                <li><strong>Write code</strong> based on commands in plain English</li>
-                <li><strong>Access Walmart systems</strong> including BigQuery, Confluence, and Microsoft 365</li>
-                <li><strong>Analyze documents</strong> like Excel spreadsheets and PDFs</li>
-                <li><strong>Help with Walmart-specific research</strong> and documentation</li>
+                <li><strong>Write code</strong> based on plain English commands</li>
+                <li><strong>Access Walmart systems</strong> - BigQuery, Confluence, Microsoft 365</li>
+                <li><strong>Analyze documents</strong> - Excel, PDFs, Word docs</li>
+                <li><strong>Research</strong> - Search internal documentation</li>
             </ul>
-
-            <div class="callout callout-info">
-                <span class="callout-title">Why Code Puppy?</span>
-                Code Puppy is quickly becoming Walmart's go-to AI tool. It's getting powerful very quickly, and the underlying Large Language Models are now good enough for non-technical users to create really useful things.
-            </div>
-
-            <h2>AI Tools at Walmart (As of January 2026)</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>Tools</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Chatbots</strong></td>
-                        <td>Enterprise ChatGPT, Microsoft Copilot</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Coding Agents</strong></td>
-                        <td>Code Puppy, VS Code + GitHub Copilot, Windsurf, Cursor</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p>Code Puppy stands out because it's built specifically for Walmart, integrates with our internal systems, and is incredibly easy to install and use.</p>
 
             <h2>What is Vibe Coding?</h2>
-            <p>"Vibe Coding" is using natural language (English) to tell an AI agent what you want an app, website, or analysis to do - and then the agent writes the code for you.</p>
-            <ul>
-                <li>It's called "vibe" coding because you're just <em>vibing</em> while it does the work</li>
-                <li>You say: "I want to build a dashboard for this data"</li>
-                <li>The agent writes the code for a dashboard</li>
-            </ul>
-
+            <p>Using natural language to tell an AI what you want - and the AI writes the code. You're just <em>vibing</em> while it works.</p>
+            
             <div class="callout callout-tip">
                 <span class="callout-title">Realistic Expectations</span>
-                <strong>0-60: Incredibly fast.</strong> Dashboards, interactive visuals, data analysis, document processing - all great use cases that work well locally on your computer.<br><br>
-                <strong>60-100: Incredibly slow.</strong> Shipping a full website or app, connecting to live data, hosting online - these are more advanced and take more effort.
+                <strong>0-60: Fast.</strong> Dashboards, analysis, visualizations, local tools.<br>
+                <strong>60-100: Slow.</strong> Production apps, live data, hosting - takes more effort.
             </div>
 
             <h2>Good Uses for Code Puppy</h2>
             <div class="card-grid">
                 <div class="card">
                     <h3>Analyze Spreadsheets</h3>
-                    <p>Feed an Excel doc into Code Puppy, tell it what analysis you want done, and let it work. Copy and paste the file path to make it quick.</p>
+                    <p>Feed Excel files and get insights, summaries, and analysis.</p>
                 </div>
                 <div class="card">
                     <h3>Create Visualizations</h3>
-                    <p>Tell Code Puppy to make charts and visuals based on your data. Great for quick reports and presentations.</p>
+                    <p>Generate charts and graphs from your data.</p>
                 </div>
                 <div class="card">
                     <h3>Document Analysis</h3>
-                    <p>Upload PDFs, Word docs, or other files and have Code Puppy summarize, extract, or analyze the content.</p>
+                    <p>Summarize PDFs, extract data, process documents.</p>
                 </div>
                 <div class="card">
                     <h3>Walmart Research</h3>
-                    <p>Use the built-in Confluence and BigQuery agents to search internal documentation and query data.</p>
+                    <p>Search Confluence and query BigQuery directly.</p>
                 </div>
             </div>
 
-            <h2>Ready to Start?</h2>
+            <h2>What's New</h2>
+            <div class="card">
+                <h3>January 2026</h3>
+                <p><strong>New Models:</strong> Claude Opus 4.5, ChatGPT 5.2, Gemini 3.0</p>
+                <p><strong>New Agents:</strong> BigQuery Search, Confluence Search, Agent Creator</p>
+                <p><strong>This Guide:</strong> Launched with Quick Start, Learn, Troubleshooting, and Resources.</p>
+            </div>
+
+            <h2>Ready?</h2>
             <a href="quick-start.html" class="btn btn-primary">Quick Start (5 min)</a>
-            <a href="installation.html" class="btn btn-secondary">Full Installation Guide</a>
-            <a href="whats-new.html" class="btn btn-secondary">What's New</a>
+            <a href="learn.html" class="btn btn-secondary">Full Guide</a>
         </div>
     </main>
 
     <footer class="footer">
         <div class="container">
-            <p>AI Training Guide - Walmart Finance</p>
-            <p>Last updated: January 2026</p>
+            <p>AI Training Guide - Walmart Finance | Last updated: January 2026</p>
         </div>
     </footer>
 

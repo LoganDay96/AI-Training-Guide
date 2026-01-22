@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn | AI Training Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">AI Training Guide</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="quick-start.html" class="nav-link">Quick Start</a></li>
+                <li class="nav-item"><a href="learn.html" class="nav-link active">Learn</a></li>
+                <li class="nav-item"><a href="troubleshooting.html" class="nav-link">Troubleshooting</a></li>
+                <li class="nav-item"><a href="resources.html" class="nav-link">Resources</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <h1>Learn Code Puppy</h1>
+            <p>Everything you need to go from installation to power user.</p>
+
+            <div class="callout callout-info">
+                <span class="callout-title">On This Page</span>
+                <a href="#installation">Installation</a> |
+                <a href="#getting-started">Getting Started</a> |
+                <a href="#models">Choosing Models</a> |
+                <a href="#best-practices">Best Practices</a> |
+                <a href="#context">Context Management</a>
+            </div>
+
+            <!-- INSTALLATION SECTION -->
+            <h2 id="installation">Installation</h2>
+            
+            <h3>Prerequisites</h3>
+            <ul>
+                <li>A Walmart laptop (Windows or Mac)</li>
+                <li>Access to the internet (on VPN or in-office)</li>
+                <li>Windows PowerShell (Windows) or Terminal (Mac)</li>
+            </ul>
+
+            <h3>Install Steps</h3>
+            <ol class="steps">
+                <li><strong>Go to <a href="https://puppy.walmart.com" target="_blank">puppy.walmart.com</a></strong></li>
+                <li><strong>Sign in with Walmart Auth</strong></li>
+                <li><strong>Open PowerShell</strong> (Windows) or <strong>Terminal</strong> (Mac)</li>
+                <li><strong>Copy the install command</strong> from the website for your OS</li>
+                <li><strong>Paste and press Enter</strong> - installation takes 1-3 minutes</li>
+      </ol>
+
+            <h3>Running Code Puppy</h3>
+            <p>Open PowerShell/Terminal and type:</p>
+            <pre><code>code-puppy</code></pre>
+
+            <div class="callout callout-tip">
+                <span class="callout-title">Pro Tip</span>
+                Navigate to your project folder first with <code>cd path\to\folder</code>, then run <code>code-puppy</code>.
+            </div>
+
+            <!-- GETTING STARTED SECTION -->
+            <h2 id="getting-started">Getting Started</h2>
+
+            <h3>Basic Commands</h3>
+            <table>
+                <thead>
+                    <tr><th>Command</th><th>What It Does</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>/model</code></td><td>Switch AI models</td></tr>
+                    <tr><td><code>/help</code></td><td>Show all commands</td></tr>
+                    <tr><td><code>/clear</code></td><td>Clear conversation</td></tr>
+                    <tr><td><code>/exit</code></td><td>Exit Code Puppy</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Example Prompts</h3>
+            <p><strong>Analyze a file:</strong></p>
+            <pre><code>Please analyze C:\Users\YourName\Documents\data.xlsx and summarize the key findings</code></pre>
+
+            <p><strong>Search Walmart docs:</strong></p>
+            <pre><code>Search Confluence for documentation about expense reporting</code></pre>
+
+            <p><strong>Create a chart:</strong></p>
+            <pre><code>Look at this Excel file and create a bar chart of sales by month</code></pre>
+
+            <h3>Built-in Agents</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>BigQuery Search</h3>
+                    <p>Query Walmart's data warehouse directly.</p>
+                </div>
+                <div class="card">
+                    <h3>Confluence Search</h3>
+                    <p>Find internal documentation and guides.</p>
+                </div>
+                <div class="card">
+                    <h3>Agent Creator</h3>
+                    <p>Build your own custom agents easily.</p>
+                </div>
+            </div>
+
+            <!-- MODELS SECTION -->
+            <h2 id="models">Choosing the Right Model</h2>
+
+            <div class="callout callout-warning">
+                <span class="callout-title">Important</span>
+                If Code Puppy seems "dumb," you're probably on Haiku (the lightweight model). Switch to a full model!
+            </div>
+
+            <p>Type <code>/model</code> to see options. Recommended models:</p>
+            <table>
+                <thead>
+                    <tr><th>Model</th><th>Best For</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Claude Opus 4.5</strong></td><td>Best overall for most tasks</td></tr>
+                    <tr><td><strong>ChatGPT 5.2</strong></td><td>Very good, more methodical</td></tr>
+                    <tr><td><strong>Gemini 3.0</strong></td><td>Great for images and front-end design</td></tr>
+                </tbody>
+            </table>
+
+            <p><strong>If one model gets stuck:</strong></p>
+            <ol>
+                <li>Try 3 times, then switch models</li>
+                <li>If still stuck, start a new conversation</li>
+            </ol>
+
+            <!-- BEST PRACTICES SECTION -->
+            <h2 id="best-practices">Best Practices</h2>
+
+            <h3>The Waterfall Approach</h3>
+            <ol class="steps">
+                <li><strong>Clean your data first</strong> - Fix formatting, add clear headers</li>
+                <li><strong>Let AI understand it</strong> - Have it ask questions until it gets it</li>
+                <li><strong>Create a plan together</strong> - Don't jump to building</li>
+                <li><strong>Execute</strong> - Feed the plan to Code Puppy</li>
+                <li><strong>Iterate</strong> - Review and refine</li>
+            </ol>
+
+            <h3>Prompting Tips</h3>
+            <table>
+                <thead>
+                    <tr><th>Instead of...</th><th>Try...</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>"Analyze this file"</td><td>"Find the top 10 customers by revenue"</td></tr>
+                    <tr><td>"Make a chart"</td><td>"Create a bar chart of monthly sales with blue bars"</td></tr>
+                    <tr><td>"Fix this"</td><td>"This error appears on line 15: [paste error]"</td></tr>
+                </tbody>
+            </table>
+
+            <h3>The Interview Technique</h3>
+            <p>For complex tasks, use this magic prompt:</p>
+            <pre><code>Help me come up with a plan. DON'T WRITE ANY FILES.
+Ask me clarifying questions until you are 95% confident.
+Provide options labeled a, b, c for me to choose from.</code></pre>
+
+            <!-- CONTEXT SECTION -->
+            <h2 id="context">Context Management</h2>
+
+            <div class="callout callout-warning">
+                <span class="callout-title">Context Limits</span>
+                When conversations get long (50-70% of context used), you'll notice generic answers and forgotten instructions. Time for a new chat!
+            </div>
+
+            <h3>Preserving Progress</h3>
+            <p>Before ending a long session:</p>
+            <pre><code>Create a context.md file summarizing what we built, current state, and next steps.</code></pre>
+            
+            <p>When starting fresh:</p>
+            <pre><code>Read the context.md file to understand where we left off.</code></pre>
+
+            <h3>Quick Wins</h3>
+            <ul>
+                <li><strong>Launcher files:</strong> Ask for a batch file to double-click and launch your tool</li>
+                <li><strong>Cache data:</strong> Avoid re-uploading data every time</li>
+                <li><strong>Screenshot errors:</strong> Paste them directly into chat</li>
+            </ul>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e0e0e0;">
+            <a href="troubleshooting.html" class="btn btn-primary">Troubleshooting</a>
+            <a href="resources.html" class="btn btn-secondary">Resources</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>AI Training Guide - Walmart Finance</p>
+            <p>Last updated: January 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        document.querySelectorAll('pre').forEach(function(pre) {
+            const btn = document.createElement('button');
+            btn.className = 'copy-btn';
+            btn.textContent = 'Copy';
+            btn.addEventListener('click', function() {
+                const code = pre.querySelector('code').textContent;
+                navigator.clipboard.writeText(code).then(function() {
+                    btn.textContent = 'Copied!';
+                    btn.classList.add('copied');
+                    setTimeout(function() {
+                        btn.textContent = 'Copy';
+                        btn.classList.remove('copied');
+                    }, 2000);
+                });
+            });
+            pre.appendChild(btn);
+        });
+    </script>
+</body>
+</html>
