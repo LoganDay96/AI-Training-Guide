@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glossary | AI Training Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .glossary-search {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .glossary-search:focus {
+            outline: none;
+            border-color: #0071CE;
+        }
+        .category-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .category-btn {
+            padding: 0.4rem 0.8rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
+            background: white;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+        .category-btn:hover {
+            border-color: #0071CE;
+            background: #f0f7ff;
+        }
+        .category-btn.active {
+            background: #0071CE;
+            color: white;
+            border-color: #0071CE;
+        }
+        .term-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        .term-card.hidden {
+            display: none;
+        }
+        .term-name {
+            font-weight: 600;
+            color: #041f41;
+            font-size: 1.05rem;
+            margin-bottom: 0.25rem;
+        }
+        .term-category {
+            font-size: 0.75rem;
+            color: #666;
+            background: #f0f0f0;
+            padding: 0.15rem 0.5rem;
+            border-radius: 10px;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+        .term-definition {
+            color: #444;
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+        .term-link {
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+        .term-link a {
+            color: #0071CE;
+        }
+        .term-count {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">AI Training Guide</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="quick-start.html" class="nav-link">Quick Start</a></li>
+                <li class="nav-item"><a href="learn.html" class="nav-link">Learn</a></li>
+                <li class="nav-item"><a href="troubleshooting.html" class="nav-link">Troubleshooting</a></li>
+                <li class="nav-item"><a href="resources.html" class="nav-link">Resources</a></li>
+                <li class="nav-item"><a href="glossary.html" class="nav-link active">Glossary</a></li>
+                <li class="nav-item"><a href="prompts.html" class="nav-link">Prompts</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <h1>📚 Tech Glossary</h1>
+            <p>Plain-English definitions for technical terms you'll encounter.</p>
+
+            <input type="text" class="glossary-search" id="searchBox" placeholder="Search terms..." aria-label="Search glossary terms">
+
+            <div class="category-filters" id="categoryFilters">
+                <button class="category-btn active" data-category="all">All</button>
+                <button class="category-btn" data-category="AI">🤖 AI</button>
+                <button class="category-btn" data-category="Tools">🔧 Tools</button>
+                <button class="category-btn" data-category="Programming Languages">💻 Languages</button>
+                <button class="category-btn" data-category="Frameworks">🏗️ Frameworks</button>
+                <button class="category-btn" data-category="Data">📊 Data</button>
+                <button class="category-btn" data-category="Version Control">📝 Git</button>
+                <button class="category-btn" data-category="Concepts">💡 Concepts</button>
+                <button class="category-btn" data-category="Deployment">🚀 Deployment</button>
+            </div>
+
+            <div class="term-count" id="termCount">Showing 75 terms</div>
+
+            <div id="glossaryList">
+                <!-- AI & LLM -->
+                <div class="term-card" data-category="AI">
+                    <div class="term-name">AI Agent</div>
+                    <span class="term-category">AI</span>
+                    <div class="term-definition">An AI system (like ChatGPT or Claude) that can understand instructions and perform tasks like writing code.</div>
+                </div>
+                <div class="term-card" data-category="AI">
+                    <div class="term-name">Claude</div>
+                    <span class="term-category">AI</span>
+                    <div class="term-definition">An AI assistant made by Anthropic. Known for strong coding abilities and thoughtful responses.</div>
+                </div>
+                <div class="term-card" data-category="AI">
+                    <div class="term-name">ChatGPT</div>
+                    <span class="term-category">AI</span>
+                    <div class="term-definition">An AI assistant made by OpenAI. Can write code, answer questions, and help with many tasks.</div>
+                </div>
+                <div class="term-card" data-category="AI">
+                    <div class="term-name">LLM</div>
+                    <span class="term-category">AI</span>
+                    <div class="term-definition">Large Language Model - the technology behind AI assistants. Trained on vast amounts of text to understand and generate language.</div>
+                </div>
+                <div class="term-card" data-category="AI">
+                    <div class="term-name">Token</div>
+                    <span class="term-category">AI</span>
+                    <div class="term-definition">A chunk of text (roughly one word) that AI models process. AI models have limits on how many tokens they can 'remember'.</div>
+                </div>
+                <div class="term-card" data-category="AI">
+                    <div class="term-name">Context Window</div>
+                    <span class="term-category">AI</span>
+                    <div class="term-definition">The amount of conversation an AI can 'remember' at once. Measured in tokens. Larger = better memory.</div>
+                </div>
+                <div class="term-card" data-category="AI">
+                    <div class="term-name">Prompt</div>
+                    <span class="term-category">AI</span>
+                    <div class="term-definition">The instruction or question you give to an AI. Better prompts = better results!</div>
+                </div>
+                <div class="term-card" data-category="AI">
+                    <div class="term-name">Prompt Engineering</div>
+                    <span class="term-category">AI</span>
+                    <div class="term-definition">The skill of writing effective prompts to get better results from AI. A key skill in vibe coding!</div>
+                </div>
+                <div class="term-card" data-category="AI">
+                    <div class="term-name">Context Engineering</div>
+                    <span class="term-category">AI</span>
+                    <div class="term-definition">Managing what information the AI has access to. Starting fresh chats and saving context to files for better results.</div>
+                </div>
+                <div class="term-card" data-category="AI">
+                    <div class="term-name">Code Puppy</div>
+                    <span class="term-category">AI</span>
+                    <div class="term-definition">Walmart's in-house AI coding assistant. Similar to Claude Code, available at puppy.walmart.com.</div>
+                </div>
+                <div class="term-card" data-category="AI">
+                    <div class="term-name">Hallucination</div>
+                    <span class="term-category">AI</span>
+                    <div class="term-definition">When AI confidently makes something up that isn't true. Always verify important facts!</div>
+                </div>
+
+                <!-- Tools -->
+                <div class="term-card" data-category="Tools">
+                    <div class="term-name">VS Code</div>
+                    <span class="term-category">Tools</span>
+                    <div class="term-definition">Visual Studio Code - a free code editor from Microsoft. Think of it as 'Word for code'.</div>
+                </div>
+                <div class="term-card" data-category="Tools">
+                    <div class="term-name">IDE</div>
+                    <span class="term-category">Tools</span>
+                    <div class="term-definition">Integrated Development Environment - an application for writing code with helpful features like auto-complete and error highlighting.</div>
+                </div>
+                <div class="term-card" data-category="Tools">
+                    <div class="term-name">Terminal</div>
+                    <span class="term-category">Tools</span>
+                    <div class="term-definition">A text-based interface for running commands on your computer. Also called 'command line' or 'console'.</div>
+                </div>
+                <div class="term-card" data-category="Tools">
+                    <div class="term-name">CLI</div>
+                    <span class="term-category">Tools</span>
+                    <div class="term-definition">Command Line Interface - interacting with your computer by typing text commands instead of clicking buttons.</div>
+                </div>
+                <div class="term-card" data-category="Tools">
+                    <div class="term-name">PowerShell</div>
+                    <span class="term-category">Tools</span>
+                    <div class="term-definition">Windows' built-in command-line tool. Where you type commands to run programs, install packages, etc.</div>
+                </div>
+                <div class="term-card" data-category="Tools">
+                    <div class="term-name">GUI</div>
+                    <span class="term-category">Tools</span>
+                    <div class="term-definition">Graphical User Interface - the visual elements (buttons, windows, icons) you click on to use software.</div>
+                </div>
+                <div class="term-card" data-category="Tools">
+                    <div class="term-name">pip</div>
+                    <span class="term-category">Tools</span>
+                    <div class="term-definition">Python's package installer. The command 'pip install pandas' downloads and installs the Pandas library.</div>
+                </div>
+                <div class="term-card" data-category="Tools">
+                    <div class="term-name">npm</div>
+                    <span class="term-category">Tools</span>
+                    <div class="term-definition">Node Package Manager - installs JavaScript packages. The command 'npm install react' downloads React.</div>
+                </div>
+                <div class="term-card" data-category="Tools">
+                    <div class="term-name">GitHub Copilot</div>
+                    <span class="term-category">Tools</span>
+                    <div class="term-definition">An AI assistant that suggests code as you type. Integrated into VS Code to help you write code faster.</div>
+                </div>
+
+                <!-- Programming Languages -->
+                <div class="term-card" data-category="Programming Languages">
+                    <div class="term-name">Python</div>
+                    <span class="term-category">Languages</span>
+                    <div class="term-definition">A beginner-friendly programming language widely used for data analysis, automation, and AI. Named after Monty Python!</div>
+                </div>
+                <div class="term-card" data-category="Programming Languages">
+                    <div class="term-name">JavaScript</div>
+                    <span class="term-category">Languages</span>
+                    <div class="term-definition">The programming language that makes websites interactive. Runs in web browsers and can also run on servers.</div>
+                </div>
+                <div class="term-card" data-category="Programming Languages">
+                    <div class="term-name">SQL</div>
+                    <span class="term-category">Languages</span>
+                    <div class="term-definition">Structured Query Language - the standard language for talking to databases. Used to retrieve, update, and manage data.</div>
+                </div>
+                <div class="term-card" data-category="Programming Languages">
+                    <div class="term-name">HTML</div>
+                    <span class="term-category">Languages</span>
+                    <div class="term-definition">HyperText Markup Language - defines the structure of web pages. Think of it as the skeleton of a website.</div>
+                </div>
+                <div class="term-card" data-category="Programming Languages">
+                    <div class="term-name">CSS</div>
+                    <span class="term-category">Languages</span>
+                    <div class="term-definition">Cascading Style Sheets - controls how web pages look (colors, fonts, layout). The 'makeup' of a website.</div>
+                </div>
+                <div class="term-card" data-category="Programming Languages">
+                    <div class="term-name">TypeScript</div>
+                    <span class="term-category">Languages</span>
+                    <div class="term-definition">JavaScript with added safety features. Helps catch errors before your code runs by checking data types.</div>
+                </div>
+
+                <!-- Frameworks -->
+                <div class="term-card" data-category="Frameworks">
+                    <div class="term-name">Streamlit</div>
+                    <span class="term-category">Frameworks</span>
+                    <div class="term-definition">A Python framework that turns scripts into interactive web dashboards with minimal code. Perfect for beginners!</div>
+                </div>
+                <div class="term-card" data-category="Frameworks">
+                    <div class="term-name">React</div>
+                    <span class="term-category">Frameworks</span>
+                    <div class="term-definition">A popular JavaScript library for building user interfaces. Used by Facebook, Netflix, and many major websites.</div>
+                </div>
+                <div class="term-card" data-category="Frameworks">
+                    <div class="term-name">Pandas</div>
+                    <span class="term-category">Frameworks</span>
+                    <div class="term-definition">A Python library for working with data tables (like Excel, but in code). Essential for data analysis.</div>
+                </div>
+                <div class="term-card" data-category="Frameworks">
+                    <div class="term-name">Framework</div>
+                    <span class="term-category">Frameworks</span>
+                    <div class="term-definition">A foundation of pre-written code that provides structure for building applications. Like a house frame before you add walls.</div>
+                </div>
+                <div class="term-card" data-category="Frameworks">
+                    <div class="term-name">Library</div>
+                    <span class="term-category">Frameworks</span>
+                    <div class="term-definition">Pre-written code that you can use in your projects. Like using a recipe instead of inventing cooking from scratch.</div>
+                </div>
+                <div class="term-card" data-category="Frameworks">
+                    <div class="term-name">Package</div>
+                    <span class="term-category">Frameworks</span>
+                    <div class="term-definition">A bundle of code that adds specific functionality to your project. Installed using package managers like pip or npm.</div>
+                </div>
+
+                <!-- Data -->
+                <div class="term-card" data-category="Data">
+                    <div class="term-name">DataFrame</div>
+                    <span class="term-category">Data</span>
+                    <div class="term-definition">A table of data in Python (rows and columns), like an Excel spreadsheet you can manipulate with code.</div>
+                </div>
+                <div class="term-card" data-category="Data">
+                    <div class="term-name">CSV</div>
+                    <span class="term-category">Data</span>
+                    <div class="term-definition">Comma-Separated Values - a simple text file format for storing table data. Each line is a row, commas separate columns.</div>
+                </div>
+                <div class="term-card" data-category="Data">
+                    <div class="term-name">JSON</div>
+                    <span class="term-category">Data</span>
+                    <div class="term-definition">JavaScript Object Notation - a text format for storing structured data. Very common for web APIs and configuration files.</div>
+                </div>
+                <div class="term-card" data-category="Data">
+                    <div class="term-name">Database</div>
+                    <span class="term-category">Data</span>
+                    <div class="term-definition">An organized collection of data stored electronically. Like a super-powered Excel with better performance and security.</div>
+                </div>
+                <div class="term-card" data-category="Data">
+                    <div class="term-name">Query</div>
+                    <span class="term-category">Data</span>
+                    <div class="term-definition">A request for specific data from a database. Written in SQL to ask questions like 'show me all sales over $1000'.</div>
+                </div>
+                <div class="term-card" data-category="Data">
+                    <div class="term-name">API</div>
+                    <span class="term-category">Data</span>
+                    <div class="term-definition">Application Programming Interface - a way for different software to communicate. Like a waiter taking your order to the kitchen.</div>
+                </div>
+                <div class="term-card" data-category="Data">
+                    <div class="term-name">String</div>
+                    <span class="term-category">Data</span>
+                    <div class="term-definition">Text data in programming. Called a 'string' because it's a string of characters. Written in quotes: "Hello World"</div>
+                </div>
+                <div class="term-card" data-category="Data">
+                    <div class="term-name">Integer</div>
+                    <span class="term-category">Data</span>
+                    <div class="term-definition">A whole number (no decimals). Examples: 1, 42, -7, 1000. Used for counting and simple math.</div>
+                </div>
+                <div class="term-card" data-category="Data">
+                    <div class="term-name">Boolean</div>
+                    <span class="term-category">Data</span>
+                    <div class="term-definition">A true/false value. Used for yes/no questions and conditions. Named after mathematician George Boole.</div>
+                </div>
+
+                <!-- Version Control -->
+                <div class="term-card" data-category="Version Control">
+                    <div class="term-name">Git</div>
+                    <span class="term-category">Version Control</span>
+                    <div class="term-definition">A system that tracks changes to your code over time. Like 'Track Changes' in Word, but much more powerful.</div>
+                </div>
+                <div class="term-card" data-category="Version Control">
+                    <div class="term-name">GitHub</div>
+                    <span class="term-category">Version Control</span>
+                    <div class="term-definition">A website for storing code and collaborating with others. Like Google Drive, but designed for code projects.</div>
+                </div>
+                <div class="term-card" data-category="Version Control">
+                    <div class="term-name">Repository</div>
+                    <span class="term-category">Version Control</span>
+                    <div class="term-definition">A project folder tracked by Git. Contains all your code files plus the history of every change made.</div>
+                </div>
+                <div class="term-card" data-category="Version Control">
+                    <div class="term-name">Commit</div>
+                    <span class="term-category">Version Control</span>
+                    <div class="term-definition">A saved snapshot of your code at a specific moment. Like a checkpoint in a video game you can return to.</div>
+                </div>
+                <div class="term-card" data-category="Version Control">
+                    <div class="term-name">Branch</div>
+                    <span class="term-category">Version Control</span>
+                    <div class="term-definition">A separate version of your code for experimenting. You can try changes without affecting your main working code.</div>
+                </div>
+
+                <!-- Concepts -->
+                <div class="term-card" data-category="Concepts">
+                    <div class="term-name">Vibe Coding</div>
+                    <span class="term-category">Concepts</span>
+                    <div class="term-definition">Using natural language (plain English) to tell AI what you want to build, and having the AI write the code for you.</div>
+                </div>
+                <div class="term-card" data-category="Concepts">
+                    <div class="term-name">MVP</div>
+                    <span class="term-category">Concepts</span>
+                    <div class="term-definition">Minimum Viable Product - the simplest version of your project that still works. Start simple, add features later!</div>
+                </div>
+                <div class="term-card" data-category="Concepts">
+                    <div class="term-name">Variable</div>
+                    <span class="term-category">Concepts</span>
+                    <div class="term-definition">A named container that stores data. Like a labeled box where you keep a value (number, text, etc.).</div>
+                </div>
+                <div class="term-card" data-category="Concepts">
+                    <div class="term-name">Function</div>
+                    <span class="term-category">Concepts</span>
+                    <div class="term-definition">A reusable block of code that performs a specific task. Like a recipe you can use over and over.</div>
+                </div>
+                <div class="term-card" data-category="Concepts">
+                    <div class="term-name">Bug</div>
+                    <span class="term-category">Concepts</span>
+                    <div class="term-definition">An error or flaw in code that causes unexpected behavior. Called a 'bug' since early computers had actual insects cause problems!</div>
+                </div>
+                <div class="term-card" data-category="Concepts">
+                    <div class="term-name">Debugging</div>
+                    <span class="term-category">Concepts</span>
+                    <div class="term-definition">The process of finding and fixing errors (bugs) in code. A major part of programming!</div>
+                </div>
+                <div class="term-card" data-category="Concepts">
+                    <div class="term-name">Refactor</div>
+                    <span class="term-category">Concepts</span>
+                    <div class="term-definition">To restructure existing code without changing what it does. Makes code cleaner and easier to maintain.</div>
+                </div>
+                <div class="term-card" data-category="Concepts">
+                    <div class="term-name">Iterate</div>
+                    <span class="term-category">Concepts</span>
+                    <div class="term-definition">To repeat a process, making improvements each time. In coding: build, test, improve, repeat.</div>
+                </div>
+                <div class="term-card" data-category="Concepts">
+                    <div class="term-name">Dependency</div>
+                    <span class="term-category">Concepts</span>
+                    <div class="term-definition">Code your project relies on to work. If your dashboard uses Pandas, Pandas is a dependency.</div>
+                </div>
+
+                <!-- Deployment -->
+                <div class="term-card" data-category="Deployment">
+                    <div class="term-name">Deploy</div>
+                    <span class="term-category">Deployment</span>
+                    <div class="term-definition">To publish your application so others can use it. Moving from 'works on my computer' to 'works for everyone'.</div>
+                </div>
+                <div class="term-card" data-category="Deployment">
+                    <div class="term-name">Server</div>
+                    <span class="term-category">Deployment</span>
+                    <div class="term-definition">A computer that provides services to other computers. Hosts websites, runs applications, stores data.</div>
+                </div>
+                <div class="term-card" data-category="Deployment">
+                    <div class="term-name">Localhost</div>
+                    <span class="term-category">Deployment</span>
+                    <div class="term-definition">Your own computer acting as a server. The address 'localhost' or '127.0.0.1' points to your machine.</div>
+                </div>
+                <div class="term-card" data-category="Deployment">
+                    <div class="term-name">Port</div>
+                    <span class="term-category">Deployment</span>
+                    <div class="term-definition">A number that identifies a specific program on a computer. Like apartment numbers in a building. Example: localhost:8501</div>
+                </div>
+                <div class="term-card" data-category="Deployment">
+                    <div class="term-name">Cloud</div>
+                    <span class="term-category">Deployment</span>
+                    <div class="term-definition">Computing services delivered over the internet. 'The cloud' just means 'someone else's computer'.</div>
+                </div>
+                <div class="term-card" data-category="Deployment">
+                    <div class="term-name">Frontend</div>
+                    <span class="term-category">Deployment</span>
+                    <div class="term-definition">The part of an application users see and interact with. The buttons, forms, and visuals in a web app.</div>
+                </div>
+                <div class="term-card" data-category="Deployment">
+                    <div class="term-name">Backend</div>
+                    <span class="term-category">Deployment</span>
+                    <div class="term-definition">The behind-the-scenes part of an application. Handles data storage, business logic, and server communication.</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>AI Training Guide - Walmart Finance | Last updated: January 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation toggle
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Glossary filtering
+        const searchBox = document.getElementById('searchBox');
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const termCards = document.querySelectorAll('.term-card');
+        const termCount = document.getElementById('termCount');
+        let activeCategory = 'all';
+
+        function filterTerms() {
+            const searchTerm = searchBox.value.toLowerCase();
+            let visibleCount = 0;
+
+            termCards.forEach(card => {
+                const name = card.querySelector('.term-name').textContent.toLowerCase();
+                const definition = card.querySelector('.term-definition').textContent.toLowerCase();
+                const category = card.dataset.category;
+
+                const matchesSearch = name.includes(searchTerm) || definition.includes(searchTerm);
+                const matchesCategory = activeCategory === 'all' || category === activeCategory;
+
+                if (matchesSearch && matchesCategory) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            termCount.textContent = `Showing ${visibleCount} term${visibleCount !== 1 ? 's' : ''}`;
+        }
+
+        searchBox.addEventListener('input', filterTerms);
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeCategory = btn.dataset.category;
+                filterTerms();
+            });
+        });
+
+        // Initial count
+        filterTerms();
+    </script>
+</body>
+</html>

@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Library | AI Training Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .prompt-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .cat-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
+            background: white;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+        .cat-btn:hover {
+            border-color: #0071CE;
+            background: #f0f7ff;
+        }
+        .cat-btn.active {
+            background: #0071CE;
+            color: white;
+            border-color: #0071CE;
+        }
+        .prompt-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        .prompt-card.hidden {
+            display: none;
+        }
+        .prompt-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+        .prompt-title {
+            font-weight: 600;
+            color: #041f41;
+            font-size: 1.1rem;
+        }
+        .prompt-meta {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.75rem;
+        }
+        .prompt-badge {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 10px;
+            background: #f0f0f0;
+            color: #666;
+        }
+        .prompt-badge.beginner { background: #d4edda; color: #155724; }
+        .prompt-badge.intermediate { background: #fff3cd; color: #856404; }
+        .prompt-badge.category { background: #e7f1ff; color: #0071CE; }
+        .prompt-desc {
+            color: #555;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+        .prompt-features {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        .prompt-features strong {
+            color: #333;
+        }
+        .prompt-content {
+            display: none;
+            background: #041f41;
+            color: #f8f8f2;
+            padding: 1rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            word-break: break-word;
+            margin-top: 0.75rem;
+            max-height: 400px;
+            overflow-y: auto;
+            position: relative;
+        }
+        .prompt-content.show {
+            display: block;
+        }
+        .toggle-btn {
+            background: #0071CE;
+            color: white;
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+        }
+        .toggle-btn:hover {
+            background: #005a9e;
+        }
+        .copy-prompt-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+        .copy-prompt-btn:hover {
+            background: #218838;
+        }
+        .copy-prompt-btn.copied {
+            background: #666;
+        }
+        .prompt-count {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">AI Training Guide</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="quick-start.html" class="nav-link">Quick Start</a></li>
+                <li class="nav-item"><a href="learn.html" class="nav-link">Learn</a></li>
+                <li class="nav-item"><a href="troubleshooting.html" class="nav-link">Troubleshooting</a></li>
+                <li class="nav-item"><a href="resources.html" class="nav-link">Resources</a></li>
+                <li class="nav-item"><a href="glossary.html" class="nav-link">Glossary</a></li>
+                <li class="nav-item"><a href="prompts.html" class="nav-link active">Prompts</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <h1>💡 Prompt Library</h1>
+            <p>Copy-paste ready prompts for building dashboards and tools. Click "Show Prompt" then copy!</p>
+
+            <div class="callout callout-tip">
+                <span class="callout-title">How to Use</span>
+                1. Pick a prompt that matches what you want to build<br>
+                2. Click "Show Prompt" to reveal the full prompt<br>
+                3. Click "Copy" and paste into Code Puppy<br>
+                4. Customize as needed!
+            </div>
+
+            <div class="prompt-categories">
+                <button class="cat-btn active" data-category="all">All</button>
+                <button class="cat-btn" data-category="financial">💰 Financial</button>
+                <button class="cat-btn" data-category="operations">🏪 Operations</button>
+                <button class="cat-btn" data-category="labor">👥 Labor</button>
+                <button class="cat-btn" data-category="executive">📈 Executive</button>
+                <button class="cat-btn" data-category="utilities">🔧 Utilities</button>
+            </div>
+
+            <div class="prompt-count" id="promptCount">Showing 10 prompts</div>
+
+            <div id="promptList">
+                <!-- P&L Dashboard -->
+                <div class="prompt-card" data-category="financial">
+                    <div class="prompt-header">
+                        <div class="prompt-title">P&L Dashboard</div>
+                    </div>
+                    <div class="prompt-meta">
+                        <span class="prompt-badge category">💰 Financial</span>
+                        <span class="prompt-badge beginner">Beginner</span>
+                        <span class="prompt-badge">⏱ 10-15 min</span>
+                    </div>
+                    <div class="prompt-desc">Interactive income statement viewer with variance analysis and drill-down by department or region.</div>
+                    <div class="prompt-features"><strong>You'll build:</strong> Hierarchical P&L table, variance columns (Actual vs Budget), month/YTD toggle, department drill-down, trend sparklines</div>
+                    <button class="toggle-btn" onclick="togglePrompt(this)">Show Prompt</button>
+                    <button class="copy-prompt-btn" onclick="copyPrompt(this)">Copy</button>
+                    <div class="prompt-content">Create a Streamlit P&L (Profit & Loss) Dashboard with the following features:
+
+DATA STRUCTURE:
+- Create sample data with these P&L line items: Net Sales, Cost of Goods Sold, Gross Margin, Payroll, Occupancy, Supplies, Other Operating Expenses, Operating Income, Interest & Taxes, Net Income
+- Include columns for: Actual, Budget, Variance ($), Variance (%), Prior Year, vs PY (%)
+- Add a Department dimension (Grocery, GM, Apparel, Pharmacy, Other)
+- Include monthly data for the current fiscal year
+
+LAYOUT:
+1. Sidebar filters: Month selector, Department multi-select, View toggle (Monthly vs YTD)
+2. KPI cards at top: Net Sales, Gross Margin %, Operating Income, Net Income (each with vs Budget variance)
+3. P&L Table: Hierarchical format, color-coded variances (green=favorable, red=unfavorable), expandable rows
+4. Charts: Monthly Net Sales trend (Actual vs Budget), Waterfall chart (Revenue to Net Income)
+
+STYLING:
+- Walmart blue (#0071CE) as accent color
+- Format currency with $ and commas
+- Format percentages to 1 decimal place</div>
+                </div>
+
+                <!-- Expense Tracker -->
+                <div class="prompt-card" data-category="financial">
+                    <div class="prompt-header">
+                        <div class="prompt-title">Expense Tracker</div>
+                    </div>
+                    <div class="prompt-meta">
+                        <span class="prompt-badge category">💰 Financial</span>
+                        <span class="prompt-badge beginner">Beginner</span>
+                        <span class="prompt-badge">⏱ 10 min</span>
+                    </div>
+                    <div class="prompt-desc">Track spending by cost center and GL account with budget comparison and approval workflow status.</div>
+                    <div class="prompt-features"><strong>You'll build:</strong> Expense summary cards, spending breakdown by cost center, budget utilization bars, monthly trend chart, searchable expense table</div>
+                    <button class="toggle-btn" onclick="togglePrompt(this)">Show Prompt</button>
+                    <button class="copy-prompt-btn" onclick="copyPrompt(this)">Copy</button>
+                    <div class="prompt-content">Create a Streamlit Expense Tracker Dashboard with these features:
+
+DATA STRUCTURE:
+- Sample expense data: Date, Description, Amount, Cost Center, GL Account, Submitted By, Status (Approved/Pending/Rejected), Approver
+- Cost Centers: Store Operations, Marketing, IT, HR, Supply Chain, Finance
+- GL Accounts: Travel & Entertainment, Supplies, Professional Services, Equipment, Training, Other
+- Include Budget amounts by Cost Center and GL Account
+- Generate 50-100 sample transactions over the past 6 months
+
+LAYOUT:
+1. Sidebar: Date range picker, Cost Center/GL Account/Status filters
+2. Top KPIs: Total Spend, Budget Remaining, Pending Approvals, Avg Processing Time
+3. Budget Section: Horizontal bars showing spend vs budget by Cost Center (color-coded)
+4. Trend Analysis: Line chart of monthly spending, stacked bar by GL Account
+5. Detail Table: Sortable, searchable, with status badges and CSV export
+
+STYLING:
+- Green=under budget, Yellow=80-100%, Red=over budget
+- Format currency with $ and commas</div>
+                </div>
+
+                <!-- Month-End Close Tracker -->
+                <div class="prompt-card" data-category="financial">
+                    <div class="prompt-header">
+                        <div class="prompt-title">Month-End Close Tracker</div>
+                    </div>
+                    <div class="prompt-meta">
+                        <span class="prompt-badge category">💰 Financial</span>
+                        <span class="prompt-badge beginner">Beginner</span>
+                        <span class="prompt-badge">⏱ 10 min</span>
+                    </div>
+                    <div class="prompt-desc">Checklist and status tracker for month-end close tasks with deadlines and ownership.</div>
+                    <div class="prompt-features"><strong>You'll build:</strong> Days until close countdown, progress indicator, task checklist by category, due date tracking with alerts, owner assignments</div>
+                    <button class="toggle-btn" onclick="togglePrompt(this)">Show Prompt</button>
+                    <button class="copy-prompt-btn" onclick="copyPrompt(this)">Copy</button>
+                    <div class="prompt-content">Create a Streamlit Month-End Close Tracker with these features:
+
+DATA STRUCTURE:
+- Close tasks with: Task Name, Category, Owner, Due Date, Status (Not Started/In Progress/Complete/Blocked), Priority, Notes
+- Categories: Revenue Recognition, Accruals, Reconciliations, Journal Entries, Reporting, Approvals
+- Include 20-25 typical month-end close tasks
+- Set due dates relative to Close Date (e.g., Close Date -5 days)
+
+LAYOUT:
+1. Header: Large "Days Until Close" countdown, progress ring, quick stats
+2. Sidebar: Period selector, Category/Owner/Status/Priority filters
+3. Task Board: Checklist view OR Kanban columns, with owner, due date, priority badges
+4. Summary: Completion % by Category, tasks by Owner chart, timeline view
+
+INTERACTIVITY:
+- Click task to update status and add notes
+- Checkbox to mark complete
+- Overdue tasks highlighted red, due today in yellow
+
+Generate sample data where close is ~5 days away with realistic progress.</div>
+                </div>
+
+                <!-- Comp Sales Tracker -->
+                <div class="prompt-card" data-category="operations">
+                    <div class="prompt-header">
+                        <div class="prompt-title">Comp Sales Tracker</div>
+                    </div>
+                    <div class="prompt-meta">
+                        <span class="prompt-badge category">🏪 Operations</span>
+                        <span class="prompt-badge beginner">Beginner</span>
+                        <span class="prompt-badge">⏱ 10 min</span>
+                    </div>
+                    <div class="prompt-desc">Compare this year vs last year sales performance by store, region, and department.</div>
+                    <div class="prompt-features"><strong>You'll build:</strong> Comp sales summary with TY vs LY, performance by region/store, department analysis, weekly trends, top/bottom store lists</div>
+                    <button class="toggle-btn" onclick="togglePrompt(this)">Show Prompt</button>
+                    <button class="copy-prompt-btn" onclick="copyPrompt(this)">Copy</button>
+                    <div class="prompt-content">Create a Streamlit Comp Sales Tracker Dashboard with these features:
+
+DATA STRUCTURE:
+- Sales data: Store Number, Store Name, Region (5 regions), District, Week, TY Sales, LY Sales, TY Transactions, LY Transactions
+- Calculate: Comp Sales %, Comp Transactions %, Average Ticket TY/LY
+- Include 50 stores across 5 regions, 12 weeks of data
+
+LAYOUT:
+1. Sidebar: Week selector, Region/District/Store filters
+2. Top KPIs: Total Comp %, Comp Transactions %, Avg Ticket Change %, Positive Comp Stores count
+3. Trend: Weekly comp % line chart with reference line at 0%
+4. Regional Performance: Map or bar chart by region, color-coded by performance
+5. Store Rankings: Top 10 and Bottom 10 stores columns
+6. Department Breakdown: Horizontal bar chart by department
+7. Detail Table: Full store data, sortable, with conditional formatting
+
+STYLING:
+- Walmart blue for headers, green for positive, red for negative
+- Format percentages with +/- signs
+- Format sales as $X.XM or $X.XK</div>
+                </div>
+
+                <!-- Traffic & Conversion -->
+                <div class="prompt-card" data-category="operations">
+                    <div class="prompt-header">
+                        <div class="prompt-title">Traffic & Conversion Dashboard</div>
+                    </div>
+                    <div class="prompt-meta">
+                        <span class="prompt-badge category">🏪 Operations</span>
+                        <span class="prompt-badge intermediate">Intermediate</span>
+                        <span class="prompt-badge">⏱ 15 min</span>
+                    </div>
+                    <div class="prompt-desc">Track customer traffic counts, conversion rates, basket size, and shopping patterns.</div>
+                    <div class="prompt-features"><strong>You'll build:</strong> Traffic/conversion KPIs, hourly heatmap, conversion funnel, basket size distribution, day-of-week analysis</div>
+                    <button class="toggle-btn" onclick="togglePrompt(this)">Show Prompt</button>
+                    <button class="copy-prompt-btn" onclick="copyPrompt(this)">Copy</button>
+                    <div class="prompt-content">Create a Streamlit Traffic & Conversion Dashboard with these features:
+
+DATA STRUCTURE:
+- Data: Date, Hour, Day of Week, Store, Traffic Count, Transactions, Total Sales, Units Sold
+- Calculate: Conversion Rate, Average Basket, Units per Transaction, Sales per Visitor
+- Include hourly data for 4 weeks across 10 stores
+- Simulate realistic patterns: higher traffic on weekends, peak hours, lower conversion when busy
+
+LAYOUT:
+1. Sidebar: Date range, Store selector, Day of week filter, Hour range slider
+2. Top KPIs: Total Traffic, Conversion Rate %, Average Basket $, Sales per Visitor $
+3. Conversion Funnel: Traffic → Transactions → Units → Sales
+4. Traffic Patterns: Heatmap (days x hours), hourly pattern line chart, peak hour callouts
+5. Conversion Analysis: Scatter plot (Traffic vs Conversion), daily trend, by day-of-week
+6. Basket Analysis: Histogram of basket sizes, average basket by hour
+7. Store Comparison: Table ranking stores by conversion rate
+
+Include "insights" callout boxes (e.g., "Peak traffic is 5-6pm but conversion is highest at 10am")</div>
+                </div>
+
+                <!-- Labor Hours Dashboard -->
+                <div class="prompt-card" data-category="labor">
+                    <div class="prompt-header">
+                        <div class="prompt-title">Labor Hours Dashboard</div>
+                    </div>
+                    <div class="prompt-meta">
+                        <span class="prompt-badge category">👥 Labor</span>
+                        <span class="prompt-badge beginner">Beginner</span>
+                        <span class="prompt-badge">⏱ 10 min</span>
+                    </div>
+                    <div class="prompt-desc">Track planned vs actual labor hours with overtime monitoring and productivity metrics.</div>
+                    <div class="prompt-features"><strong>You'll build:</strong> Labor hours summary, overtime tracking/alerts, hours by department, weekly trends, SPLH productivity metrics</div>
+                    <button class="toggle-btn" onclick="togglePrompt(this)">Show Prompt</button>
+                    <button class="copy-prompt-btn" onclick="copyPrompt(this)">Copy</button>
+                    <div class="prompt-content">Create a Streamlit Labor Hours Dashboard with these features:
+
+DATA STRUCTURE:
+- Data: Week, Store, Department, Planned Hours, Actual Hours, Regular Hours, Overtime Hours, Headcount, Sales
+- Departments: Front End, Grocery, Fresh, GM, Receiving, Management
+- Calculate: Variance, Variance %, OT %, Sales per Labor Hour (SPLH), Hours per $1000 Sales
+- Include 8 weeks of data for 5 stores with 6 departments each
+
+LAYOUT:
+1. Sidebar: Week/Store/Department selectors, Hours vs $ toggle
+2. Top KPIs: Total Hours (vs Plan), Overtime Hours (with OT %), SPLH, Hours Variance
+3. Plan vs Actual: Grouped bar chart by department (red if over, green if under)
+4. Overtime Analysis: Donut chart (Regular vs OT), OT by department, alert if OT >5%
+5. Trend Analysis: Weekly hours trend, OT trend, SPLH trend
+6. Productivity: SPLH by department bar chart, Hours vs Sales scatter plot
+7. Detail Table: Full breakdown with conditional formatting, export button
+
+Generate data where overall hours are slightly over plan with some departments efficient and others overspent.</div>
+                </div>
+
+                <!-- Headcount Tracker -->
+                <div class="prompt-card" data-category="labor">
+                    <div class="prompt-header">
+                        <div class="prompt-title">Headcount Tracker</div>
+                    </div>
+                    <div class="prompt-meta">
+                        <span class="prompt-badge category">👥 Labor</span>
+                        <span class="prompt-badge beginner">Beginner</span>
+                        <span class="prompt-badge">⏱ 10 min</span>
+                    </div>
+                    <div class="prompt-desc">Track open positions, turnover rates, time-to-fill, and workforce composition.</div>
+                    <div class="prompt-features"><strong>You'll build:</strong> Headcount summary (Filled/Open/Budget), turnover tracking, open positions aging, new hire trends, tenure distribution</div>
+                    <button class="toggle-btn" onclick="togglePrompt(this)">Show Prompt</button>
+                    <button class="copy-prompt-btn" onclick="copyPrompt(this)">Copy</button>
+                    <div class="prompt-content">Create a Streamlit Headcount Tracker Dashboard with these features:
+
+DATA STRUCTURE:
+- Position data: Position ID, Title, Department, Status (Filled/Open/Pending), Budgeted, Date Opened, Date Filled, Days Open, Location
+- Employee data: Employee ID, Name, Department, Hire Date, Termination Date, Status, Tenure
+- Departments: Front End, Grocery, Fresh, GM, Receiving, Management, Pharmacy
+- 200 budgeted positions across a district
+
+LAYOUT:
+1. Sidebar: Department/Location/Status filters, date range for trends
+2. Top KPIs: Current Headcount / Budgeted, Open Positions, Turnover Rate %, Avg Time to Fill
+3. Headcount Summary: Stacked bar (Filled vs Open vs Pending), pie chart by department, fill rate gauge
+4. Open Positions: Table sorted by Days Open (aging color-coded), bar chart by department
+5. Turnover Analysis: Monthly trend line, turnover by department, recent terminations table
+6. Hiring Funnel: Posted → Applied → Interviewed → Offered → Hired
+7. Tenure Distribution: Histogram by tenure bands, highlight <90 day risk
+
+Generate data showing ~90% fill rate, some departments with higher turnover.</div>
+                </div>
+
+                <!-- Goal Tracker -->
+                <div class="prompt-card" data-category="executive">
+                    <div class="prompt-header">
+                        <div class="prompt-title">KPI Goal Tracker</div>
+                    </div>
+                    <div class="prompt-meta">
+                        <span class="prompt-badge category">📈 Executive</span>
+                        <span class="prompt-badge beginner">Beginner</span>
+                        <span class="prompt-badge">⏱ 10 min</span>
+                    </div>
+                    <div class="prompt-desc">Track progress toward annual and quarterly goals with visual gauges and trend analysis.</div>
+                    <div class="prompt-features"><strong>You'll build:</strong> Goal progress gauges, on-track/at-risk indicators, quarterly trend charts, action items for at-risk goals</div>
+                    <button class="toggle-btn" onclick="togglePrompt(this)">Show Prompt</button>
+                    <button class="copy-prompt-btn" onclick="copyPrompt(this)">Copy</button>
+                    <div class="prompt-content">Create a Streamlit KPI Goal Tracker with these features:
+
+DATA STRUCTURE:
+- Goals: Goal Name, Category, Annual Target, Current Value, Unit ($ or % or #), Owner, Status
+- Categories: Financial, Operations, Customer, People
+- Include monthly actuals for trend tracking
+- Sample goals: Revenue $XXM, Gross Margin %, EBITDA, NPS Score, Turnover %, OSAT Score, Shrink %
+
+LAYOUT:
+1. Header: Overall "X of Y Goals On Track" summary, % complete
+2. Goal Cards Grid: Each goal shows gauge (0-100% to target), current vs target, trend arrow, status badge
+3. Status Badges: Green=On Track, Yellow=At Risk, Red=Off Track
+4. Category Views: Filter/group by category
+5. Trend Charts: Line chart for each goal showing monthly progress vs target pace
+6. At-Risk Section: Highlight goals needing attention, with owner and gap to target
+7. Action Items: Auto-generated recommendations for off-track goals
+
+Generate data where most goals are on track but 2-3 are at risk or off track.</div>
+                </div>
+
+                <!-- Weekly Business Review -->
+                <div class="prompt-card" data-category="executive">
+                    <div class="prompt-header">
+                        <div class="prompt-title">Weekly Business Review</div>
+                    </div>
+                    <div class="prompt-meta">
+                        <span class="prompt-badge category">📈 Executive</span>
+                        <span class="prompt-badge intermediate">Intermediate</span>
+                        <span class="prompt-badge">⏱ 15 min</span>
+                    </div>
+                    <div class="prompt-desc">One-page executive summary of weekly performance across all key metrics.</div>
+                    <div class="prompt-features"><strong>You'll build:</strong> Executive scorecard, sales/margin/traffic summary, week-over-week comparisons, key callouts, action items</div>
+                    <button class="toggle-btn" onclick="togglePrompt(this)">Show Prompt</button>
+                    <button class="copy-prompt-btn" onclick="copyPrompt(this)">Copy</button>
+                    <div class="prompt-content">Create a Streamlit Weekly Business Review Dashboard with these features:
+
+DATA STRUCTURE:
+- Weekly metrics: Sales, Comp %, Gross Margin %, Traffic, Conversion %, Basket Size, Labor Hours, SPLH, NPS
+- Include This Week, Last Week, Last Year, Plan for each metric
+- 12 weeks of history for trends
+- Regional and department breakdowns
+
+LAYOUT:
+1. Header: Week number, date range, "Week X Business Review" title
+2. Executive Scorecard: 2x3 grid of key metrics with vs Plan, vs LY, trend arrow
+3. Sales Section: Total sales, comp %, by channel (Store/eComm), by region bar chart
+4. Margin Section: GM %, vs plan variance, drivers (mix, shrink, markdowns)
+5. Traffic & Conversion: Traffic trend, conversion %, basket size
+6. Operations: Labor hours vs plan, SPLH, OT %
+7. Key Callouts: Auto-generated bullet points ("Sales +2.1% vs plan, driven by...")
+8. Action Items: Top 3 priorities for next week
+
+Design for printing/export - clean, one-page feel.</div>
+                </div>
+
+                <!-- Meeting Cost Calculator -->
+                <div class="prompt-card" data-category="utilities">
+                    <div class="prompt-header">
+                        <div class="prompt-title">Meeting Cost Calculator</div>
+                    </div>
+                    <div class="prompt-meta">
+                        <span class="prompt-badge category">🔧 Utilities</span>
+                        <span class="prompt-badge beginner">Beginner</span>
+                        <span class="prompt-badge">⏱ 5 min</span>
+                    </div>
+                    <div class="prompt-desc">Calculate the true cost of meetings based on attendee salaries and duration.</div>
+                    <div class="prompt-features"><strong>You'll build:</strong> Attendee input, duration slider, cost calculation, "is this meeting worth it?" insight</div>
+                    <button class="toggle-btn" onclick="togglePrompt(this)">Show Prompt</button>
+                    <button class="copy-prompt-btn" onclick="copyPrompt(this)">Copy</button>
+                    <div class="prompt-content">Create a Streamlit Meeting Cost Calculator with these features:
+
+INPUTS:
+- Number of attendees by role (dropdown with typical Walmart roles)
+- Meeting duration (slider: 15 min to 2 hours)
+- Meeting frequency (one-time, weekly, bi-weekly, monthly)
+- Optional: custom hourly rates
+
+CALCULATIONS:
+- Estimated hourly cost per role (use reasonable estimates)
+- Total meeting cost = (hours) x (sum of attendee hourly rates)
+- Annual cost for recurring meetings
+
+OUTPUT:
+1. Big number: "This meeting costs $X"
+2. If recurring: "Annual cost: $X,XXX"
+3. Fun comparisons: "That's equivalent to X laptops" or "X hours of analyst time"
+4. Tips: "Could this be an email?" prompt if many attendees + short duration
+5. Breakdown: Pie chart of cost by role
+
+Make it fun and slightly cheeky while being genuinely useful!</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>AI Training Guide - Walmart Finance | Last updated: January 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation toggle
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Category filtering
+        const catBtns = document.querySelectorAll('.cat-btn');
+        const promptCards = document.querySelectorAll('.prompt-card');
+        const promptCount = document.getElementById('promptCount');
+        let activeCategory = 'all';
+
+        function filterPrompts() {
+            let visibleCount = 0;
+            promptCards.forEach(card => {
+                const category = card.dataset.category;
+                if (activeCategory === 'all' || category === activeCategory) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+            promptCount.textContent = `Showing ${visibleCount} prompt${visibleCount !== 1 ? 's' : ''}`;
+        }
+
+        catBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                catBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeCategory = btn.dataset.category;
+                filterPrompts();
+            });
+        });
+
+        // Toggle prompt visibility
+        function togglePrompt(btn) {
+            const content = btn.parentElement.querySelector('.prompt-content');
+            content.classList.toggle('show');
+            btn.textContent = content.classList.contains('show') ? 'Hide Prompt' : 'Show Prompt';
+        }
+
+        // Copy prompt
+        function copyPrompt(btn) {
+            const content = btn.parentElement.querySelector('.prompt-content').textContent;
+            navigator.clipboard.writeText(content).then(() => {
+                btn.textContent = 'Copied!';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = 'Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        // Initial count
+        filterPrompts();
+    </script>
+</body>
+</html>
