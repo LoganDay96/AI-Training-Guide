@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Practices | AI Training Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">AI Training Guide</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="quick-start.html" class="nav-link">Quick Start</a></li>
+                <li class="nav-item"><a href="learn.html" class="nav-link">Learn</a></li>
+                <li class="nav-item"><a href="troubleshooting.html" class="nav-link">Troubleshooting</a></li>
+                <li class="nav-item"><a href="resources.html" class="nav-link">Resources</a></li>
+                <li class="nav-item"><a href="glossary.html" class="nav-link">Glossary</a></li>
+                <li class="nav-item"><a href="prompts.html" class="nav-link">Prompts</a></li>
+                <li class="nav-item"><a href="cheat-sheet.html" class="nav-link">Cheat Sheet</a></li>
+                <li class="nav-item"><a href="best-practices.html" class="nav-link active">Best Practices</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <h1>Best Practices</h1>
+            <p class="lead">Guidelines for building better projects with AI assistance. Beginner-friendly with real-world analogies.</p>
+
+            <input type="text" id="searchBox" class="practices-search" placeholder="Search best practices..." aria-label="Search best practices">
+            
+            <div class="category-filters">
+                <button class="category-btn active" data-category="all">All</button>
+                <button class="category-btn" data-category="Web Development">Web Dev</button>
+                <button class="category-btn" data-category="AI Workflow">AI Workflow</button>
+                <button class="category-btn" data-category="Code Organization">Code Organization</button>
+                <button class="category-btn" data-category="Testing">Testing</button>
+                <button class="category-btn" data-category="Data Visualization">Data Viz</button>
+            </div>
+
+            <p id="practiceCount" class="practice-count">Showing all practices</p>
+
+            <div id="practicesList">
+
+                <!-- WEB DEVELOPMENT -->
+                <div class="practice-card" data-category="Web Development">
+                    <div class="practice-header">
+                        <span class="practice-title">Streamlit vs JavaScript: When to Use What</span>
+                        <span class="practice-category">Web Development</span>
+                    </div>
+                    <div class="practice-summary">
+                        <strong>Streamlit</strong> is perfect for quick dashboards and data analysis. <strong>JavaScript/React</strong> is better for interactive websites that need to feel fast and responsive.
+                    </div>
+                    <div class="practice-details">
+                        <h4>Use Streamlit when:</h4>
+                        <ul>
+                            <li>Building data dashboards or reports</li>
+                            <li>Creating internal tools just for your team</li>
+                            <li>Prototyping ideas quickly (hours, not days)</li>
+                            <li>Working primarily with Python and data (Pandas, charts)</li>
+                            <li>You don't need real-time interactivity</li>
+                        </ul>
+                        <h4>Use JavaScript/React when:</h4>
+                        <ul>
+                            <li>Building customer-facing websites</li>
+                            <li>Need instant feedback (no page reloads)</li>
+                            <li>Complex interactivity (drag-and-drop, animations)</li>
+                            <li>Mobile-first responsive design is critical</li>
+                            <li>Integration with existing web applications</li>
+                        </ul>
+                    </div>
+                    <div class="practice-analogy">
+                        <strong>Analogy:</strong> Streamlit is like a food truck - fast to set up, great for specific use cases. JavaScript is like a full restaurant - more work to build, but handles anything.
+                    </div>
+                </div>
+
+                <div class="practice-card" data-category="Web Development">
+                    <div class="practice-header">
+                        <span class="practice-title">Start Simple, Add Complexity Later</span>
+                        <span class="practice-category">Web Development</span>
+                    </div>
+                    <div class="practice-summary">
+                        Always start with the simplest solution that works. You can add features later, but you can't easily remove complexity.
+                    </div>
+                    <div class="practice-details">
+                        <h4>The progression:</h4>
+                        <ul>
+                            <li><strong>Level 1:</strong> Excel/Google Sheets - if it solves the problem, stop here!</li>
+                            <li><strong>Level 2:</strong> Python script - for automation and data processing</li>
+                            <li><strong>Level 3:</strong> Streamlit dashboard - when you need visualization</li>
+                            <li><strong>Level 4:</strong> React app - when you need interactivity</li>
+                            <li><strong>Level 5:</strong> Full web app with backend - when you need users, auth, databases</li>
+                        </ul>
+                    </div>
+                    <div class="practice-analogy">
+                        <strong>Analogy:</strong> Don't buy a semi-truck to get groceries. Match the tool to the job.
+                    </div>
+                </div>
+
+                <!-- AI WORKFLOW -->
+                <div class="practice-card" data-category="AI Workflow">
+                    <div class="practice-header">
+                        <span class="practice-title">Start Fresh Chats for New Tasks</span>
+                        <span class="practice-category">AI Workflow</span>
+                    </div>
+                    <div class="practice-summary">
+                        AI has a "context window" - it can only remember so much. Long conversations get confused. Start fresh for new topics.
+                    </div>
+                    <div class="practice-details">
+                        <h4>When to start a new chat:</h4>
+                        <ul>
+                            <li>Switching to a completely different task</li>
+                            <li>The AI seems confused or gives wrong answers</li>
+                            <li>You've been chatting for 30+ minutes</li>
+                            <li>Starting a new file or feature</li>
+                        </ul>
+                        <h4>When to continue the same chat:</h4>
+                        <ul>
+                            <li>Follow-up questions on the same topic</li>
+                            <li>Iterating on code the AI just wrote</li>
+                            <li>Debugging something the AI created</li>
+                        </ul>
+                    </div>
+                    <div class="practice-analogy">
+                        <strong>Analogy:</strong> It's like a whiteboard - eventually it gets too cluttered to read. Erase it and start fresh.
+                    </div>
+                </div>
+
+                <div class="practice-card" data-category="AI Workflow">
+                    <div class="practice-header">
+                        <span class="practice-title">Give Context, Get Better Results</span>
+                        <span class="practice-category">AI Workflow</span>
+                    </div>
+                    <div class="practice-summary">
+                        The AI doesn't know what you know. Share relevant files, explain your goal, describe your constraints. More context = better code.
+                    </div>
+                    <div class="practice-details">
+                        <h4>Good context to provide:</h4>
+                        <ul>
+                            <li>What you're trying to accomplish (the goal)</li>
+                            <li>Who will use this (audience/users)</li>
+                            <li>What technologies you're already using</li>
+                            <li>Constraints (must work offline, must use Python, etc.)</li>
+                            <li>Example data or sample files</li>
+                        </ul>
+                    </div>
+                    <div class="practice-analogy">
+                        <strong>Analogy:</strong> Imagine hiring a contractor without telling them the budget, timeline, or what room you're renovating. The more they know, the better they deliver.
+                    </div>
+                </div>
+
+                <div class="practice-card" data-category="AI Workflow">
+                    <div class="practice-header">
+                        <span class="practice-title">Verify AI Output - Trust but Verify</span>
+                        <span class="practice-category">AI Workflow</span>
+                    </div>
+                    <div class="practice-summary">
+                        AI can "hallucinate" - confidently make things up. Always test the code, verify the facts, and don't blindly trust output.
+                    </div>
+                    <div class="practice-details">
+                        <h4>Things to verify:</h4>
+                        <ul>
+                            <li><strong>Code:</strong> Run it! Does it actually work?</li>
+                            <li><strong>Numbers:</strong> Do the calculations check out?</li>
+                            <li><strong>Links/URLs:</strong> Do they actually exist?</li>
+                            <li><strong>Facts:</strong> Is this information current and accurate?</li>
+                            <li><strong>Best practices:</strong> Is this how things are actually done?</li>
+                        </ul>
+                    </div>
+                    <div class="practice-analogy">
+                        <strong>Analogy:</strong> AI is like a very confident intern - helpful and fast, but you still need to review their work.
+                    </div>
+                </div>
+
+                <!-- CODE ORGANIZATION -->
+                <div class="practice-card" data-category="Code Organization">
+                    <div class="practice-header">
+                        <span class="practice-title">Keep Files Small and Focused</span>
+                        <span class="practice-category">Code Organization</span>
+                    </div>
+                    <div class="practice-summary">
+                        One file should do one thing well. If a file grows past 200-300 lines, consider splitting it. This makes code easier to understand and maintain.
+                    </div>
+                    <div class="practice-details">
+                        <h4>Signs a file is too big:</h4>
+                        <ul>
+                            <li>You have to scroll a lot to find things</li>
+                            <li>The file does many unrelated things</li>
+                            <li>Multiple people need to edit it at once</li>
+                            <li>It's hard to describe what the file does in one sentence</li>
+                        </ul>
+                        <h4>How to split:</h4>
+                        <ul>
+                            <li>Group related functions into their own file</li>
+                            <li>Separate data processing from display logic</li>
+                            <li>Put reusable utilities in a shared file</li>
+                        </ul>
+                    </div>
+                    <div class="practice-analogy">
+                        <strong>Analogy:</strong> A junk drawer is fine until you need to find something. Organized drawers are slower to set up but faster to use.
+                    </div>
+                </div>
+
+                <div class="practice-card" data-category="Code Organization">
+                    <div class="practice-header">
+                        <span class="practice-title">Use Clear, Descriptive Names</span>
+                        <span class="practice-category">Code Organization</span>
+                    </div>
+                    <div class="practice-summary">
+                        Name things for what they do, not what they are. <code>calculate_monthly_revenue()</code> is better than <code>process_data()</code>. Future you will thank present you.
+                    </div>
+                    <div class="practice-details">
+                        <h4>Naming guidelines:</h4>
+                        <ul>
+                            <li><strong>Variables:</strong> Nouns that describe the data (<code>user_count</code>, <code>monthly_sales</code>)</li>
+                            <li><strong>Functions:</strong> Verbs that describe the action (<code>get_user()</code>, <code>calculate_total()</code>)</li>
+                            <li><strong>Files:</strong> Describe the contents (<code>data_processing.py</code>, <code>chart_utils.py</code>)</li>
+                            <li><strong>Avoid:</strong> Single letters (<code>x</code>), abbreviations (<code>proc_dat</code>), generic names (<code>stuff</code>)</li>
+                        </ul>
+                    </div>
+                    <div class="practice-analogy">
+                        <strong>Analogy:</strong> Imagine labeling every box in your house "stuff". Good luck finding anything!
+                    </div>
+                </div>
+
+                <div class="practice-card" data-category="Code Organization">
+                    <div class="practice-header">
+                        <span class="practice-title">Comment the Why, Not the What</span>
+                        <span class="practice-category">Code Organization</span>
+                    </div>
+                    <div class="practice-summary">
+                        Good code is self-explanatory for <em>what</em> it does. Comments should explain <em>why</em> - the business logic, edge cases, or non-obvious decisions.
+                    </div>
+                    <div class="practice-details">
+                        <h4>Bad comments (explain what):</h4>
+                        <ul>
+                            <li><code># Add 1 to counter</code> - we can see that!</li>
+                            <li><code># Loop through items</code> - obvious from the code</li>
+                        </ul>
+                        <h4>Good comments (explain why):</h4>
+                        <ul>
+                            <li><code># Add 1 because the API uses 1-based indexing</code></li>
+                            <li><code># Skip items with no sales - they break the chart</code></li>
+                            <li><code># Business rule: discounts only apply to orders over $100</code></li>
+                        </ul>
+                    </div>
+                    <div class="practice-analogy">
+                        <strong>Analogy:</strong> A recipe doesn't need to say "put the pan on the stove" - that's obvious. But "use low heat to prevent burning" is useful context.
+                    </div>
+                </div>
+
+                <!-- TESTING -->
+                <div class="practice-card" data-category="Testing">
+                    <div class="practice-header">
+                        <span class="practice-title">Test As You Go</span>
+                        <span class="practice-category">Testing</span>
+                    </div>
+                    <div class="practice-summary">
+                        Don't write 500 lines then test. Write a little, test it, write more. Finding bugs in 20 lines is easier than finding them in 500.
+                    </div>
+                    <div class="practice-details">
+                        <h4>Simple testing approach:</h4>
+                        <ul>
+                            <li>Write one function, run it with sample data</li>
+                            <li>Add print statements to see what's happening</li>
+                            <li>Test edge cases: empty data, weird values, large numbers</li>
+                            <li>For dashboards: click every button, try every filter</li>
+                        </ul>
+                    </div>
+                    <div class="practice-analogy">
+                        <strong>Analogy:</strong> Taste the soup while cooking, not just at the end. Easier to fix while you're making it.
+                    </div>
+                </div>
+
+                <div class="practice-card" data-category="Testing">
+                    <div class="practice-header">
+                        <span class="practice-title">Keep Sample Data Handy</span>
+                        <span class="practice-category">Testing</span>
+                    </div>
+                    <div class="practice-summary">
+                        Always have small test files ready. A 100-row CSV is easier to debug than a 1-million-row dataset. Create sample data that covers edge cases.
+                    </div>
+                    <div class="practice-details">
+                        <h4>Good sample data includes:</h4>
+                        <ul>
+                            <li>Normal, expected values</li>
+                            <li>Empty or missing values</li>
+                            <li>Extreme values (very large, very small, negative)</li>
+                            <li>Edge cases specific to your data (e.g., leap years, holidays)</li>
+                            <li>At least one example of each "type" in your data</li>
+                        </ul>
+                    </div>
+                    <div class="practice-analogy">
+                        <strong>Analogy:</strong> Crash test cars don't test with a real family inside. Use small, safe test data first.
+                    </div>
+                </div>
+
+                <!-- DATA VISUALIZATION -->
+                <div class="practice-card" data-category="Data Visualization">
+                    <div class="practice-header">
+                        <span class="practice-title">Choose the Right Chart Type</span>
+                        <span class="practice-category">Data Visualization</span>
+                    </div>
+                    <div class="practice-summary">
+                        The chart type should match your message. Don't use a pie chart for everything - each chart type has a purpose.
+                    </div>
+                    <div class="practice-details">
+                        <h4>Chart selection guide:</h4>
+                        <ul>
+                            <li><strong>Bar chart:</strong> Comparing categories (sales by region)</li>
+                            <li><strong>Line chart:</strong> Trends over time (monthly revenue)</li>
+                            <li><strong>Pie chart:</strong> Parts of a whole (market share) - use sparingly!</li>
+                            <li><strong>Scatter plot:</strong> Relationship between two variables</li>
+                            <li><strong>Table:</strong> When exact numbers matter more than patterns</li>
+                        </ul>
+                    </div>
+                    <div class="practice-analogy">
+                        <strong>Analogy:</strong> You wouldn't use a hammer to screw in a lightbulb. Use the right tool for the job.
+                    </div>
+                </div>
+
+                <div class="practice-card" data-category="Data Visualization">
+                    <div class="practice-header">
+                        <span class="practice-title">Lead with the Insight</span>
+                        <span class="practice-category">Data Visualization</span>
+                    </div>
+                    <div class="practice-summary">
+                        Don't make people hunt for the point. Use titles that state the insight, not just describe the data. "Sales Up 23%" beats "Q4 Sales Data".
+                    </div>
+                    <div class="practice-details">
+                        <h4>Tips for clear visualizations:</h4>
+                        <ul>
+                            <li>Title states the takeaway, not just the topic</li>
+                            <li>Highlight the most important number or trend</li>
+                            <li>Remove clutter - if it doesn't help, remove it</li>
+                            <li>Use color intentionally (red for bad, green for good)</li>
+                            <li>Add context - is 23% growth good or bad for this metric?</li>
+                        </ul>
+                    </div>
+                    <div class="practice-analogy">
+                        <strong>Analogy:</strong> Newspaper headlines tell you the news upfront. "Fire Destroys Building" not "Building Temperature Data".
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>AI Training Guide - Walmart Finance | Last updated: January 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation toggle
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Best practices filtering
+        const searchBox = document.getElementById('searchBox');
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const practiceCards = document.querySelectorAll('.practice-card');
+        const practiceCount = document.getElementById('practiceCount');
+        let activeCategory = 'all';
+
+        function filterPractices() {
+            const searchTerm = searchBox.value.toLowerCase();
+            let visibleCount = 0;
+
+            practiceCards.forEach(card => {
+                const title = card.querySelector('.practice-title').textContent.toLowerCase();
+                const summary = card.querySelector('.practice-summary').textContent.toLowerCase();
+                const category = card.dataset.category;
+
+                const matchesSearch = title.includes(searchTerm) || summary.includes(searchTerm);
+                const matchesCategory = activeCategory === 'all' || category === activeCategory;
+
+                if (matchesSearch && matchesCategory) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            practiceCount.textContent = `Showing ${visibleCount} practice${visibleCount !== 1 ? 's' : ''}`;
+        }
+
+        searchBox.addEventListener('input', filterPractices);
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeCategory = btn.dataset.category;
+                filterPractices();
+            });
+        });
+
+        // Initial count
+        filterPractices();
+    </script>
+</body>
+</html>
