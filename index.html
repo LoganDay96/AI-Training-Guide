@@ -33,7 +33,7 @@
     <main class="main-content">
         <div class="container">
             <div class="hero">
-                <h1>🐶 AI Training Guide</h1>
+                <h1>AI Training Guide</h1>
                 <p>Your guide to Code Puppy and AI-assisted development at Walmart</p>
                 <a href="quick-start.html" class="btn btn-secondary">Get Started</a>
             </div>
@@ -49,21 +49,12 @@
                 </ol>
             </div>
 
-            <h2>What is Code Puppy?</h2>
-            <p>Code Puppy is Walmart's in-house AI coding assistant, created by Michael Pfaffenberger in May 2025. It can:</p>
-            <ul>
-                <li><strong>Write code</strong> based on plain English commands</li>
-                <li><strong>Access Walmart systems</strong> - BigQuery, Confluence, Microsoft 365</li>
-                <li><strong>Analyze documents</strong> - Excel, PDFs, Word docs</li>
-                <li><strong>Research</strong> - Search internal documentation</li>
-            </ul>
-
             <h2>What is Vibe Coding?</h2>
-            <p>Using natural language to tell an AI what you want - and the AI writes the code. You're just <em>vibing</em> while it works.</p>
+            <p>Using natural language (English) to tell an AI what you want - and the AI writes the code. You're just <em>vibing</em> while it works.</p>
             
             <div class="callout callout-tip">
                 <span class="callout-title">Realistic Expectations</span>
-                <strong>0-60: Fast.</strong> Dashboards, analysis, visualizations, local tools.<br>
+                <strong>0-60: Fast.</strong> Dashboards, analysis, visualizations, personal tools.<br>
                 <strong>60-100: Slow.</strong> Production apps, live data, hosting - takes more effort.
             </div>
 
@@ -109,41 +100,24 @@
                     <p class="news-description">Start fresh chats for new tasks. Save important info to files. The AI works better with focused context!</p>
                 </div>
 
-                <div class="news-item">
-                    <div class="news-meta">
-                        <span class="news-date">Jan 15, 2026</span>
-                        <span class="news-tag tag-internal">Walmart</span>
-                    </div>
-                    <h3 class="news-headline">New Agents: BigQuery & Confluence Search</h3>
-                    <p class="news-description">Code Puppy can now search Walmart's Confluence docs and query BigQuery directly. Just ask!</p>
-                </div>
-
-                <div class="news-item">
-                    <div class="news-meta">
-                        <span class="news-date">Jan 10, 2026</span>
-                        <span class="news-tag tag-external">Industry</span>
-                    </div>
-                    <h3 class="news-headline">Claude 3.5 Sonnet Tops Coding Benchmarks</h3>
-                    <p class="news-description">Anthropic's Claude 3.5 Sonnet leads SWE-Bench with 72% on real GitHub issues. It's the default in Code Puppy!</p>
-                </div>
-
-                <div class="news-item">
-                    <div class="news-meta">
-                        <span class="news-date">Jan 5, 2026</span>
-                        <span class="news-tag tag-guide">Guide Update</span>
-                    </div>
-                    <h3 class="news-headline">AI Training Guide Launched!</h3>
-                    <p class="news-description">This site is live! Quick Start, Learn, Troubleshooting, Resources, Glossary, and more.</p>
-                </div>
-
             </div>
             <!-- END NEWS SECTION -->
 
             <h2>Ready?</h2>
             <a href="quick-start.html" class="btn btn-primary">Quick Start (5 min)</a>
             <a href="learn.html" class="btn btn-secondary">Full Guide</a>
+
+            <nav class="page-nav">
+                <span></span>
+                <a href="quick-start.html" class="next">
+                    <span class="nav-label">Next →</span>
+                    <span class="nav-title">Quick Start</span>
+                </a>
+            </nav>
         </div>
     </main>
+
+    <button class="back-to-top" aria-label="Back to top">↑</button>
 
     <footer class="footer">
         <div class="container">
@@ -152,8 +126,41 @@
     </footer>
 
     <script>
+        // Mobile nav toggle
         document.querySelector('.nav-toggle').addEventListener('click', function() {
             document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Back to top button
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Copy buttons for code blocks
+        document.querySelectorAll('pre').forEach(pre => {
+            const btn = document.createElement('button');
+            btn.className = 'copy-btn';
+            btn.textContent = 'Copy';
+            btn.addEventListener('click', () => {
+                const code = pre.querySelector('code')?.textContent || pre.textContent;
+                navigator.clipboard.writeText(code).then(() => {
+                    btn.textContent = 'Copied!';
+                    btn.classList.add('copied');
+                    setTimeout(() => {
+                        btn.textContent = 'Copy';
+                        btn.classList.remove('copied');
+                    }, 2000);
+                });
+            });
+            pre.appendChild(btn);
         });
     </script>
 </body>

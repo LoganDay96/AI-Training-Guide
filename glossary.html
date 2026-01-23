@@ -438,8 +438,21 @@
                     <div class="term-link"><a href="https://www.freecodecamp.org/news/frontend-vs-backend-whats-the-difference/" target="_blank">freeCodeCamp →</a></div>
                 </div>
             </div>
+
+            <nav class="page-nav">
+                <a href="resources.html" class="prev">
+                    <span class="nav-label">← Previous</span>
+                    <span class="nav-title">Resources</span>
+                </a>
+                <a href="prompts.html" class="next">
+                    <span class="nav-label">Next →</span>
+                    <span class="nav-title">Prompts</span>
+                </a>
+            </nav>
         </div>
     </main>
+
+    <button class="back-to-top" aria-label="Back to top">↑</button>
 
     <footer class="footer">
         <div class="container">
@@ -451,6 +464,19 @@
         // Navigation toggle
         document.querySelector('.nav-toggle').addEventListener('click', function() {
             document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Back to top button
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
         // Glossary filtering

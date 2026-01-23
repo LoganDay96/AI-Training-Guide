@@ -351,8 +351,17 @@
                 </div>
 
             </div>
+
+            <!-- Page Navigation -->
+            <nav class="page-nav">
+                <a href="cheat-sheet.html" class="page-nav-link prev">← Previous: Cheat Sheet</a>
+                <a href="index.html" class="page-nav-link next">Back to Home →</a>
+            </nav>
         </div>
     </main>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">↑</button>
 
     <footer class="footer">
         <div class="container">
@@ -364,6 +373,29 @@
         // Navigation toggle
         document.querySelector('.nav-toggle').addEventListener('click', function() {
             document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Back to top button
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            backToTop.classList.toggle('visible', window.scrollY > 300);
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Copy button for code blocks
+        document.querySelectorAll('pre').forEach(pre => {
+            const btn = document.createElement('button');
+            btn.className = 'copy-btn';
+            btn.textContent = 'Copy';
+            btn.addEventListener('click', () => {
+                navigator.clipboard.writeText(pre.textContent);
+                btn.textContent = 'Copied!';
+                setTimeout(() => btn.textContent = 'Copy', 2000);
+            });
+            pre.style.position = 'relative';
+            pre.appendChild(btn);
         });
 
         // Best practices filtering

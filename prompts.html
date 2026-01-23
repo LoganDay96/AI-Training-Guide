@@ -402,8 +402,21 @@ OUTPUT:
 Make it fun and slightly cheeky while being genuinely useful!</div>
                 </div>
             </div>
+
+            <nav class="page-nav">
+                <a href="glossary.html" class="prev">
+                    <span class="nav-label">← Previous</span>
+                    <span class="nav-title">Glossary</span>
+                </a>
+                <a href="cheat-sheet.html" class="next">
+                    <span class="nav-label">Next →</span>
+                    <span class="nav-title">Cheat Sheet</span>
+                </a>
+            </nav>
         </div>
     </main>
+
+    <button class="back-to-top" aria-label="Back to top">↑</button>
 
     <footer class="footer">
         <div class="container">
@@ -415,6 +428,19 @@ Make it fun and slightly cheeky while being genuinely useful!</div>
         // Navigation toggle
         document.querySelector('.nav-toggle').addEventListener('click', function() {
             document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Back to top button
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
         // Category filtering

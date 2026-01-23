@@ -73,13 +73,9 @@
             <div class="card">
                 <h3>Mistake #5: Ignoring Context Limits</h3>
                 <p><strong>Problem:</strong> AI was working great, now gives generic answers.</p>
-                <p><strong>Fix:</strong> Context is full. Save a <code>context.md</code> file, start fresh, tell it to read that file.</p>
-            </div>
-
-            <div class="card">
-                <h3>Mistake #6: Expecting Too Much</h3>
-                <p><strong>Problem:</strong> You want a complete production app in one shot.</p>
-                <p><strong>Fix:</strong> AI is great at 0-60 (prototypes, analysis). 60-100 (production apps) takes more work. Start small.</p>
+                <p><strong>What's happening:</strong> The AI has a "context window" - the amount of conversation it can remember at once (like short-term memory). As your chat gets longer with code, files, and back-and-forth, older information gets pushed out. Once full, the AI loses track of earlier decisions and starts giving generic responses.</p>
+                <p><strong>Auto Compact:</strong> Code Puppy has an "auto compact" feature that automatically summarizes older parts of the conversation when the context gets full. This keeps the key points while freeing up space. You'll see a notification when this happens. It helps, but very long sessions may still lose some details.</p>
+                <p><strong>Fix:</strong> Save important decisions to a <code>context.md</code> file, start a fresh chat, and tell the AI to read that file first. Think of it as giving the AI notes to study before starting fresh.</p>
             </div>
 
             <!-- INSTALLATION ISSUES -->
@@ -96,7 +92,7 @@
                     </tr>
                     <tr>
                         <td>Connection/download errors</td>
-                        <td>Make sure you're on VPN or Walmart network</td>
+                        <td>Make sure you're on the Eagle Profile VPN</td>
                     </tr>
                     <tr>
                         <td>Permission denied</td>
@@ -144,11 +140,20 @@
                 </ul>
             </div>
 
-            <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e0e0e0;">
-            <a href="learn.html" class="btn btn-primary">Back to Learn</a>
-            <a href="resources.html" class="btn btn-secondary">Resources</a>
+            <nav class="page-nav">
+                <a href="learn.html" class="prev">
+                    <span class="nav-label">← Previous</span>
+                    <span class="nav-title">Learn</span>
+                </a>
+                <a href="resources.html" class="next">
+                    <span class="nav-label">Next →</span>
+                    <span class="nav-title">Resources</span>
+                </a>
+            </nav>
         </div>
     </main>
+
+    <button class="back-to-top" aria-label="Back to top">↑</button>
 
     <footer class="footer">
         <div class="container">
@@ -157,20 +162,35 @@
     </footer>
 
     <script>
+        // Mobile nav toggle
         document.querySelector('.nav-toggle').addEventListener('click', function() {
             document.querySelector('.nav-menu').classList.toggle('active');
         });
 
-        document.querySelectorAll('pre').forEach(function(pre) {
+        // Back to top button
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Copy buttons for code blocks
+        document.querySelectorAll('pre').forEach(pre => {
             const btn = document.createElement('button');
             btn.className = 'copy-btn';
             btn.textContent = 'Copy';
-            btn.addEventListener('click', function() {
-                const code = pre.querySelector('code').textContent;
-                navigator.clipboard.writeText(code).then(function() {
+            btn.addEventListener('click', () => {
+                const code = pre.querySelector('code')?.textContent || pre.textContent;
+                navigator.clipboard.writeText(code).then(() => {
                     btn.textContent = 'Copied!';
                     btn.classList.add('copied');
-                    setTimeout(function() {
+                    setTimeout(() => {
                         btn.textContent = 'Copy';
                         btn.classList.remove('copied');
                     }, 2000);
