@@ -365,42 +365,6 @@ LAYOUT:
 Design for printing/export - clean, one-page feel.</div>
                 </div>
 
-                <!-- Meeting Cost Calculator -->
-                <div class="prompt-card" data-category="utilities">
-                    <div class="prompt-header">
-                        <div class="prompt-title">Meeting Cost Calculator</div>
-                    </div>
-                    <div class="prompt-meta">
-                        <span class="prompt-badge category">🔧 Utilities</span>
-                        <span class="prompt-badge beginner">Beginner</span>
-                        <span class="prompt-badge">⏱ 5 min</span>
-                    </div>
-                    <div class="prompt-desc">Calculate the true cost of meetings based on attendee salaries and duration.</div>
-                    <div class="prompt-features"><strong>You'll build:</strong> Attendee input, duration slider, cost calculation, "is this meeting worth it?" insight</div>
-                    <button class="toggle-btn" onclick="togglePrompt(this)">Show Prompt</button>
-                    <button class="copy-prompt-btn" onclick="copyPrompt(this)">Copy</button>
-                    <div class="prompt-content">Create a Streamlit Meeting Cost Calculator with these features:
-
-INPUTS:
-- Number of attendees by role (dropdown with typical Walmart roles)
-- Meeting duration (slider: 15 min to 2 hours)
-- Meeting frequency (one-time, weekly, bi-weekly, monthly)
-- Optional: custom hourly rates
-
-CALCULATIONS:
-- Estimated hourly cost per role (use reasonable estimates)
-- Total meeting cost = (hours) x (sum of attendee hourly rates)
-- Annual cost for recurring meetings
-
-OUTPUT:
-1. Big number: "This meeting costs $X"
-2. If recurring: "Annual cost: $X,XXX"
-3. Fun comparisons: "That's equivalent to X laptops" or "X hours of analyst time"
-4. Tips: "Could this be an email?" prompt if many attendees + short duration
-5. Breakdown: Pie chart of cost by role
-
-Make it fun and slightly cheeky while being genuinely useful!</div>
-                </div>
             </div>
 
             <nav class="page-nav">

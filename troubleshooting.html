@@ -48,8 +48,8 @@
 
             <div class="card">
                 <h3>Mistake #1: Using the Wrong Model</h3>
-                <p><strong>Problem:</strong> Code Puppy seems dumb and gives generic answers.</p>
-                <p><strong>Fix:</strong> Type <code>/model</code> and switch to <strong>Claude Opus 4.5</strong> or <strong>ChatGPT 5.2</strong>.</p>
+                <p><strong>Problem:</strong> Code Puppy gives generic answers or feels less capable.</p>
+                <p><strong>Fix:</strong> Type <code>/model</code> and switch to a full model like <strong>Claude Opus 4.5</strong> or <strong>ChatGPT 5.2</strong>.</p>
             </div>
 
             <div class="card">
@@ -74,8 +74,8 @@
                 <h3>Mistake #5: Ignoring Context Limits</h3>
                 <p><strong>Problem:</strong> AI was working great, now gives generic answers.</p>
                 <p><strong>What's happening:</strong> The AI has a "context window" - the amount of conversation it can remember at once (like short-term memory). As your chat gets longer with code, files, and back-and-forth, older information gets pushed out. Once full, the AI loses track of earlier decisions and starts giving generic responses.</p>
-                <p><strong>Auto Compact:</strong> Code Puppy has an "auto compact" feature that automatically summarizes older parts of the conversation when the context gets full. This keeps the key points while freeing up space. You'll see a notification when this happens. It helps, but very long sessions may still lose some details.</p>
-                <p><strong>Fix:</strong> Save important decisions to a <code>context.md</code> file, start a fresh chat, and tell the AI to read that file first. Think of it as giving the AI notes to study before starting fresh.</p>
+                <p><strong>Auto Compact:</strong> Code Puppy has an "auto compact" feature that summarizes older parts of the conversation when the context gets full. You'll see a notification when this happens. It helps, but some details can be lost each time—so for best results, save key decisions and start a fresh chat (ideally in the same repo).</p>
+                <p><strong>Fix:</strong> Save important decisions to a handoff file (e.g., <code>context.md</code>), start a fresh chat, and tell the AI to read it first. Think of it as giving the AI notes to study before starting fresh.</p>
             </div>
 
             <!-- INSTALLATION ISSUES -->
@@ -91,12 +91,8 @@
                         <td>Close and reopen PowerShell, try again</td>
                     </tr>
                     <tr>
-                        <td>Connection/download errors</td>
-                        <td>Make sure you're on the Eagle Profile VPN</td>
-                    </tr>
-                    <tr>
                         <td>Permission denied</td>
-                        <td>Right-click PowerShell > Run as Administrator</td>
+                        <td>Try reinstalling. If it persists, ask in the <a href="https://teams.microsoft.com/l/channel/19%3AGbP8DGJjrXq1sL3IlXErZc5U7hk-IEqsokmnImcKyP41%40thread.tacv2/General?groupId=51caa2b5-ff58-4dc0-9ee0-c20eea1de9f8&tenantId=3cbcc3d3-094d-4006-9849-0d11d61f484d" target="_blank">Code Puppy Teams channel</a></td>
                     </tr>
                     <tr>
                         <td>Installation hangs</td>
@@ -122,9 +118,9 @@
 
             <h3>BigQuery or Confluence agents not working</h3>
             <ul>
-                <li>Check you have proper permissions</li>
+                <li>Confirm you have access—agents use your credentials, so if you don't have access, they won't work</li>
+                <li>If prompted, authorize access again</li>
                 <li>Try restarting Code Puppy</li>
-                <li>Re-authenticate if needed</li>
             </ul>
 
             <!-- GETTING HELP -->
@@ -133,9 +129,8 @@
             <div class="callout callout-info">
                 <span class="callout-title">Getting Help</span>
                 <ul style="margin-bottom: 0;">
-                    <li>Check the Code Puppy Teams channel for known issues</li>
+                    <li>Check the <a href="https://teams.microsoft.com/l/channel/19%3AGbP8DGJjrXq1sL3IlXErZc5U7hk-IEqsokmnImcKyP41%40thread.tacv2/General?groupId=51caa2b5-ff58-4dc0-9ee0-c20eea1de9f8&tenantId=3cbcc3d3-094d-4006-9849-0d11d61f484d" target="_blank">Code Puppy Teams channel</a> for known issues</li>
                     <li>Ask there - the community is helpful!</li>
-                    <li>For critical issues, contact the Code Puppy team directly</li>
                     <li>Reinstall from <a href="https://puppy.walmart.com">puppy.walmart.com</a></li>
                 </ul>
             </div>

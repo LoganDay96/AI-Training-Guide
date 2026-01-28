@@ -82,7 +82,7 @@
                 </thead>
                 <tbody>
                     <tr><td><code>/model</code></td><td>Switch AI models</td></tr>
-                    <tr><td><code>/agent</code></td><td>Switch agents (BigQuery, Confluence, etc.)</td></tr>
+                    <tr><td><code>/agent</code> / <code>/a</code></td><td>Switch agents (BigQuery, Confluence, etc.)</td></tr>
                     <tr><td><code>/resume</code></td><td>Resume a previous conversation</td></tr>
                     <tr><td><code>/help</code></td><td>Show all commands</td></tr>
                     <tr><td><code>/clear</code></td><td>Clear conversation</td></tr>
@@ -94,7 +94,7 @@
             <p><strong>Analyze a file:</strong></p>
             <pre><code>Please analyze C:\Users\YourName\Documents\data.xlsx and summarize the key findings</code></pre>
 
-            <p><strong>Search Walmart docs:</strong></p>
+            <p><strong>Search Walmart docs (if you have access):</strong></p>
             <pre><code>Search Confluence for documentation about expense reporting</code></pre>
 
             <p><strong>Create a chart:</strong></p>
@@ -104,11 +104,11 @@
             <div class="card-grid">
                 <div class="card">
                     <h3>BigQuery Search</h3>
-                    <p>Query Walmart's data warehouse directly.</p>
+                    <p>Query Walmart's data warehouse (uses your credentials; requires access).</p>
                 </div>
                 <div class="card">
                     <h3>Confluence Search</h3>
-                    <p>Find internal documentation and guides.</p>
+                    <p>Find internal documentation and guides (uses your credentials; requires access).</p>
                 </div>
                 <div class="card">
                     <h3>Agent Creator</h3>
@@ -121,7 +121,7 @@
 
             <div class="callout callout-warning">
                 <span class="callout-title">Important</span>
-                If Code Puppy seems "dumb," you're probably on Haiku (the lightweight model). Switch to a full model!
+                If Code Puppy gives generic answers or feels less capable, you may be on the default lightweight model (often Haiku or Sonnet). Switch to a full model!
             </div>
 
             <p>Type <code>/model</code> to see options. Recommended models:</p>
@@ -177,20 +177,20 @@ Provide options labeled a, b, c for me to choose from.</code></pre>
 
             <div class="callout callout-warning">
                 <span class="callout-title">Context Limits</span>
-                When conversations get long (50-70% of context used), you'll notice generic answers and forgotten instructions. Time for a new chat!
+                When conversations get long (around 75-80% of context used), you'll notice generic answers and forgotten instructions. Time for a new chat!
             </div>
 
             <h3>Preserving Progress</h3>
             <p>Before ending a long session:</p>
-            <pre><code>Create a context.md file summarizing what we built, current state, and next steps.</code></pre>
+            <pre><code>Create a handoff file (e.g., context.md) summarizing what we built, current state, and next steps.</code></pre>
             
             <p>When starting fresh:</p>
-            <pre><code>Read the context.md file to understand where we left off.</code></pre>
+            <pre><code>Read the handoff file (e.g., context.md) to understand where we left off.</code></pre>
 
             <h3>Quick Wins</h3>
             <ul>
                 <li><strong>Launcher files:</strong> Ask for a batch file to double-click and launch your tool</li>
-                <li><strong>Cache data:</strong> Avoid re-uploading data every time</li>
+                <li><strong>Cache data:</strong> If your data doesn't change often, cache it to avoid re-uploading; refresh when numbers need to stay current</li>
                 <li><strong>Screenshot errors:</strong> Paste them directly into chat</li>
             </ul>
 
@@ -208,7 +208,7 @@ Provide options labeled a, b, c for me to choose from.</code></pre>
                     <tr><td><strong>Complex math</strong></td><td>"What's 17.3% of $847,293?"</td><td>AI predicts text, not calculations</td></tr>
                     <tr><td><strong>Counting</strong></td><td>"How many letters in 'Mississippi'?"</td><td>It guesses, doesn't actually count</td></tr>
                     <tr><td><strong>Recent events</strong></td><td>Asking about last week's news</td><td>Training data has a cutoff date</td></tr>
-                    <tr><td><strong>Your company data</strong></td><td>"What were Q3 sales for Store #4521?"</td><td>No access to internal systems</td></tr>
+                    <tr><td><strong>Your company data</strong></td><td>"What were Q3 sales for Store #4521?"</td><td>No automatic access—only what you provide, or what Code Puppy can retrieve through an agent using your credentials (requires access)</td></tr>
                 </tbody>
             </table>
 

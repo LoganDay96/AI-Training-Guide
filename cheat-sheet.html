@@ -62,7 +62,7 @@
                         <tr><td><strong>ChatGPT 5.2</strong></td><td>Very good, methodical</td></tr>
                         <tr><td><strong>Gemini 3.0</strong></td><td>Great for images/design</td></tr>
                     </table>
-                    <p style="font-size: 0.8rem; margin: 0.5rem 0 0; color: #666;">⚠️ Avoid Haiku - it's the "lite" model!</p>
+                    <p style="font-size: 0.8rem; margin: 0.5rem 0 0; color: #666;">⚠️ If you're on the default lightweight model (often Haiku or Sonnet), results may be more generic. Switch to a full model.</p>
                 </div>
 
                 <!-- Essential Commands -->
@@ -70,7 +70,7 @@
                     <h2>⌨️ Essential Commands</h2>
                     <table>
                         <tr><td><code>/model</code></td><td>Switch AI models</td></tr>
-                        <tr><td><code>/agent</code></td><td>Switch agents (BigQuery, Confluence)</td></tr>
+                        <tr><td><code>/agent</code> / <code>/a</code></td><td>Switch agents (BigQuery, Confluence)</td></tr>
                         <tr><td><code>/resume</code></td><td>Resume previous conversation</td></tr>
                         <tr><td><code>/clear</code></td><td>Clear conversation</td></tr>
                         <tr><td><code>/help</code></td><td>Show all commands</td></tr>
@@ -95,7 +95,8 @@
                         <li><strong>Be specific:</strong> "Find top 10 customers by revenue" not "analyze this"</li>
                         <li><strong>Rule of 3:</strong> If it fails 3 times, switch models</li>
                         <li><strong>Copy file paths:</strong> Shift + right-click → "Copy as path"</li>
-                        <li><strong>Start fresh:</strong> When context is full, save a context.md and start new chat</li>
+                        <li><strong>Start fresh:</strong> When context is full, save a handoff file (e.g., context.md) and start a new chat</li>
+                        <li><strong>Protect sensitive data:</strong> Don't paste PII/PHI, passwords/API keys, or highly sensitive data; de-identify when possible</li>
                         <li><strong>Save often:</strong> Backup working folders with dated names</li>
                     </ul>
                 </div>
@@ -128,11 +129,11 @@
                 <div class="cheat-card">
                     <h2>🤖 Built-in Agents</h2>
                     <table>
-                        <tr><td><strong>BigQuery Search</strong></td><td>Query Walmart data warehouse</td></tr>
-                        <tr><td><strong>Confluence Search</strong></td><td>Find internal docs</td></tr>
+                        <tr><td><strong>BigQuery Search</strong></td><td>Query Walmart data warehouse (uses your credentials; requires access)</td></tr>
+                        <tr><td><strong>Confluence Search</strong></td><td>Find internal docs (uses your credentials; requires access)</td></tr>
                         <tr><td><strong>Agent Creator</strong></td><td>Build custom agents</td></tr>
                     </table>
-                    <p style="font-size: 0.8rem; margin: 0.5rem 0 0; color: #666;">Type <code>/agent</code> to switch between them</p>
+                    <p style="font-size: 0.8rem; margin: 0.5rem 0 0; color: #666;">Type <code>/agent</code> (or <code>/a</code>) to switch between them</p>
                 </div>
 
                 <!-- Links -->
